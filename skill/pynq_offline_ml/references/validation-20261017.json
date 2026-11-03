@@ -1,0 +1,79 @@
+{
+  "date": "2026-10-17",
+  "passed": true,
+  "pc_stack": {
+    "passed": true,
+    "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:03:56) [MSC v.1929 64 bit (AMD64)]",
+    "executable": "D:\\NUDT python\\python.exe",
+    "architecture": "AMD64",
+    "pointer_bits": 64,
+    "numpy": "1.26.4",
+    "scipy": "1.13.1",
+    "sklearn": "1.4.2",
+    "joblib": "1.4.2",
+    "pynq": {
+      "available": false,
+      "required": false,
+      "error": "No module named 'pynq'"
+    },
+    "synthetic_training_accuracy": 1.0,
+    "elapsed_ms": 6.650300005276222,
+    "scope": "this interpreter only; no Overlay load, allocation, network changes or Jupyter kernel selection"
+  },
+  "p4_stack_require_pynq": {
+    "passed": true,
+    "python": "3.8.2 (default, Mar 13 2020, 10:14:16) \n[GCC 9.3.0]",
+    "executable": "/home/xilinx/tdc-ml-env/bin/python",
+    "architecture": "aarch64",
+    "pointer_bits": 64,
+    "numpy": "1.20.3",
+    "scipy": "1.3.3",
+    "sklearn": "0.24.2",
+    "joblib": "1.1.1",
+    "pynq": {
+      "available": true,
+      "required": true,
+      "version": "2.7.0",
+      "has_allocate": true,
+      "has_Xlnk": false
+    },
+    "synthetic_training_accuracy": 1.0,
+    "elapsed_ms": 884.7263689999636,
+    "scope": "this interpreter only; no Overlay load, allocation, network changes or Jupyter kernel selection"
+  },
+  "wheel_download": {
+    "passed": true,
+    "sources_and_hashes_verified": true,
+    "fresh_download_and_cached_resume_passed": true,
+    "initial_tls_eof_recovered_by_one_retry": true,
+    "corrupt_cached_wheel_rejected_and_retained": true,
+    "corrupt_case": {
+      "passed": false,
+      "error": "existing wheel checksum mismatch; file retained: cached_test.whl"
+    },
+    "installation_performed": false
+  },
+  "existing_p4_environment": {
+    "origin": "existing project evidence, not rerun by this skill extraction",
+    "source_relative_path": "pynq/tests/kernel_environment.json",
+    "source_sha256": "4b6b6005e4bde95963371cfe48c4f802f8cb16384479d7048aea53b464218fff",
+    "data": {
+      "python": "/home/xilinx/tdc-ml-env/bin/python",
+      "version": "3.8.2",
+      "arch": "aarch64",
+      "numpy": "1.20.3",
+      "scipy": "1.3.3",
+      "sklearn": "0.24.2",
+      "joblib": "1.1.1",
+      "pynq": "2.7.0",
+      "devices": [
+        "Pynq-ZU",
+        "Pynq-ZU"
+      ],
+      "tiny_prediction": [
+        0
+      ]
+    }
+  },
+  "boundary": "current interpreter verified; no reinstall and no new Jupyter kernel test; BX71 actual kernel evidence retained separately"
+}

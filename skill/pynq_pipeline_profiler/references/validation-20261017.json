@@ -1,0 +1,391 @@
+{
+  "date": "2026-10-17",
+  "passed": true,
+  "pc_non_tdc": {
+    "passed": true,
+    "warmup_records_excluded": 2,
+    "groups": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "backend": "csv",
+        "total": {
+          "count": 3,
+          "median_ms": 1.9889000031980686,
+          "p95_ms": 2.004649998707464,
+          "min_ms": 1.6496000025654212,
+          "max_ms": 2.006399998208508
+        },
+        "stages": {
+          "read": {
+            "count": 3,
+            "median_ms": 0.3512999974191189,
+            "p95_ms": 0.604109997220803,
+            "min_ms": 0.3435000035096891,
+            "max_ms": 0.632199997198768
+          },
+          "verify": {
+            "count": 3,
+            "median_ms": 0.015099998563528061,
+            "p95_ms": 0.018429997726343572,
+            "min_ms": 0.01340000017080456,
+            "max_ms": 0.018799997633323073
+          },
+          "write": {
+            "count": 3,
+            "median_ms": 1.3313999952515587,
+            "p95_ms": 1.5868200018303469,
+            "min_ms": 1.2673000019276515,
+            "max_ms": 1.6152000025613233
+          }
+        }
+      },
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "backend": "npy",
+        "total": {
+          "count": 3,
+          "median_ms": 0.687899999320507,
+          "p95_ms": 0.9308100023190491,
+          "min_ms": 0.6094999989727512,
+          "max_ms": 0.9578000026522204
+        },
+        "stages": {
+          "read": {
+            "count": 3,
+            "median_ms": 0.17179999849759042,
+            "p95_ms": 0.17539999971631914,
+            "min_ms": 0.1508999994257465,
+            "max_ms": 0.17579999985173345
+          },
+          "verify": {
+            "count": 3,
+            "median_ms": 0.009800001862458885,
+            "p95_ms": 0.012319994857534766,
+            "min_ms": 0.009399998816661537,
+            "max_ms": 0.012599994079209864
+          },
+          "write": {
+            "count": 3,
+            "median_ms": 0.49079999735113233,
+            "p95_ms": 0.7218299950181972,
+            "min_ms": 0.43590000132098794,
+            "max_ms": 0.7474999947589822
+          }
+        }
+      }
+    ],
+    "comparisons": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "baseline": "csv",
+        "candidate": "npy",
+        "baseline_count": 3,
+        "candidate_count": 3,
+        "total_median_ratio": 2.8912632725144083
+      }
+    ],
+    "unpaired": [],
+    "scope": "application timings; ratios do not imply hardware cycle latency or universal speedup",
+    "storage_note": "read uses OS cache; fsync=False; no cache eviction or physical SD latency claim"
+  },
+  "p4_non_tdc": {
+    "passed": true,
+    "warmup_records_excluded": 2,
+    "groups": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "backend": "csv",
+        "total": {
+          "count": 3,
+          "median_ms": 40.447624000080395,
+          "p95_ms": 42.3716818002049,
+          "min_ms": 40.43687499961379,
+          "max_ms": 42.58546600021873
+        },
+        "stages": {
+          "read": {
+            "count": 3,
+            "median_ms": 25.488444999609783,
+            "p95_ms": 27.022312299868645,
+            "min_ms": 25.475224999809143,
+            "max_ms": 27.192741999897407
+          },
+          "verify": {
+            "count": 3,
+            "median_ms": 0.11284099991826224,
+            "p95_ms": 0.14512399984596414,
+            "min_ms": 0.1125909998336283,
+            "max_ms": 0.148710999837931
+          },
+          "write": {
+            "count": 3,
+            "median_ms": 14.747097000054055,
+            "p95_ms": 15.04665660027058,
+            "min_ms": 14.745467000011558,
+            "max_ms": 15.079941000294639
+          }
+        }
+      },
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "backend": "npy",
+        "total": {
+          "count": 3,
+          "median_ms": 3.329072999804339,
+          "p95_ms": 3.9169413001218345,
+          "min_ms": 3.140711000014562,
+          "max_ms": 3.982260000157112
+        },
+        "stages": {
+          "read": {
+            "count": 3,
+            "median_ms": 1.5792659996805014,
+            "p95_ms": 1.9158417001108319,
+            "min_ms": 1.507445000243024,
+            "max_ms": 1.9532390001586464
+          },
+          "verify": {
+            "count": 3,
+            "median_ms": 0.08544100001017796,
+            "p95_ms": 0.09581799995430629,
+            "min_ms": 0.08070099966062116,
+            "max_ms": 0.09697099994809832
+          },
+          "write": {
+            "count": 3,
+            "median_ms": 1.5632260001439136,
+            "p95_ms": 1.7585898996912874,
+            "min_ms": 1.4559649998773239,
+            "max_ms": 1.7802969996409956
+          }
+        }
+      }
+    ],
+    "comparisons": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "56f1728eecacdf0c04e40ff40b745f8494bab5483e847d4106f05fb91419aab4",
+        "model_id": "none",
+        "scope": "write_read_verify_os_cache",
+        "baseline": "csv",
+        "candidate": "npy",
+        "baseline_count": 3,
+        "candidate_count": 3,
+        "total_median_ratio": 12.14981588041405
+      }
+    ],
+    "unpaired": [],
+    "scope": "application timings; ratios do not imply hardware cycle latency or universal speedup",
+    "storage_note": "read uses OS cache; fsync=False; no cache eviction or physical SD latency claim"
+  },
+  "p4_fsync_single_pixel": {
+    "passed": true,
+    "warmup_records_excluded": 2,
+    "groups": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "model_id": "none",
+        "scope": "write_read_verify_fsync",
+        "backend": "csv",
+        "total": {
+          "count": 1,
+          "median_ms": 10.465705000115122,
+          "p95_ms": 10.465705000115122,
+          "min_ms": 10.465705000115122,
+          "max_ms": 10.465705000115122
+        },
+        "stages": {
+          "read": {
+            "count": 1,
+            "median_ms": 0.9496789998593158,
+            "p95_ms": 0.9496789998593158,
+            "min_ms": 0.9496789998593158,
+            "max_ms": 0.9496789998593158
+          },
+          "verify": {
+            "count": 1,
+            "median_ms": 0.09975099965231493,
+            "p95_ms": 0.09975099965231493,
+            "min_ms": 0.09975099965231493,
+            "max_ms": 0.09975099965231493
+          },
+          "write": {
+            "count": 1,
+            "median_ms": 9.319063000020833,
+            "p95_ms": 9.319063000020833,
+            "min_ms": 9.319063000020833,
+            "max_ms": 9.319063000020833
+          }
+        }
+      },
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "model_id": "none",
+        "scope": "write_read_verify_fsync",
+        "backend": "npy",
+        "total": {
+          "count": 1,
+          "median_ms": 8.254082999883394,
+          "p95_ms": 8.254082999883394,
+          "min_ms": 8.254082999883394,
+          "max_ms": 8.254082999883394
+        },
+        "stages": {
+          "read": {
+            "count": 1,
+            "median_ms": 1.5791750001881155,
+            "p95_ms": 1.5791750001881155,
+            "min_ms": 1.5791750001881155,
+            "max_ms": 1.5791750001881155
+          },
+          "verify": {
+            "count": 1,
+            "median_ms": 0.08018000016818405,
+            "p95_ms": 0.08018000016818405,
+            "min_ms": 0.08018000016818405,
+            "max_ms": 0.08018000016818405
+          },
+          "write": {
+            "count": 1,
+            "median_ms": 6.4951049998853705,
+            "p95_ms": 6.4951049998853705,
+            "min_ms": 6.4951049998853705,
+            "max_ms": 6.4951049998853705
+          }
+        }
+      }
+    ],
+    "comparisons": [
+      {
+        "case": "synthetic_grayscale_row",
+        "input_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+        "model_id": "none",
+        "scope": "write_read_verify_fsync",
+        "baseline": "csv",
+        "candidate": "npy",
+        "baseline_count": 1,
+        "candidate_count": 1,
+        "total_median_ratio": 1.2679427866503126
+      }
+    ],
+    "unpaired": [],
+    "scope": "application timings; ratios do not imply hardware cycle latency or universal speedup",
+    "storage_note": "read uses OS cache; fsync=True; no cache eviction or physical SD latency claim"
+  },
+  "failure_cases": [
+    {
+      "name": "timing rejects mismatched_input",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "timing rejects mismatched_scope",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "timing rejects mismatched_model",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "timing rejects negative_time",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "timing rejects overlapping_stages",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "timing rejects all_warmup",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject nested StageTimer segments",
+      "passed": true
+    }
+  ],
+  "historical_storage": {
+    "origin": "existing project evidence, not rerun by this skill extraction",
+    "source_relative_path": "pynq/tests/capture_storage_benchmark.json",
+    "source_sha256": "1fbda4f3ac59ef65b10b1916a6e0929b6c4cce2b70e30f749c0af460b83f0d0c",
+    "data": {
+      "samples": 5,
+      "median": {
+        "csv_write_ms": 763.097,
+        "npy_write_ms": 2.211,
+        "csv_read_ms": 3144.69,
+        "npy_read_ms": 2.69
+      },
+      "size": {
+        "csv_bytes": 514121,
+        "npy_bytes": 262272
+      },
+      "same_counts": true,
+      "same_features": true,
+      "scope": "Application-level format/read/write time using OS cache on SD filesystem; not fsync latency; temporary files only."
+    }
+  },
+  "historical_web_replay": {
+    "origin": "existing project evidence, not rerun by this skill extraction",
+    "source_relative_path": "pynq/tests/web_capture_speedup_check.json",
+    "source_sha256": "0e9257ed7aae5fb8bf10f1d6cab5ceee9a08144573b03ab937a8aa6494c445c8",
+    "data": {
+      "passed": true,
+      "history_only": true,
+      "physical_capture_tested": false,
+      "result": {
+        "duration_s": 0.20399856567382812,
+        "frame_timing": {
+          "acquire_ms": 0,
+          "read_ms": 0,
+          "file_read_ms": 5.843,
+          "save_ms": 0,
+          "extra_wait_ms": 0,
+          "inference_ms": 9.417,
+          "frame_total_ms": 17.556,
+          "interval_ms": 17.843
+        },
+        "plot_request": "30.200 ms",
+        "browser_draw": "0.500 ms",
+        "rows": 10,
+        "poll_delays": [
+          200,
+          1500,
+          200,
+          1500
+        ]
+      },
+      "frames_preserved": 130,
+      "model_id": "3f7cb142d1d9",
+      "javascript_errors": []
+    }
+  },
+  "boundary": "storage application timings and OS cache; no real acquisition benchmark or universal speedup"
+}

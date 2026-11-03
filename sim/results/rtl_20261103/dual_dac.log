@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Nov  3 09:23:51 2026
+# Process ID: 20352
+# Current directory: <source>/build/dac_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_dual_dac/xsim_script.tcl}
+# Log file: <source>/build/dac_sim/xsim.log
+# Journal file: <source>/build/dac_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_dual_dac/xsim_script.tcl
+# xsim {tb_dual_dac} -autoloadwcfg -runall
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+run -all
+PASS: dual DAC 125MHz, half-cycle setup, codes, OFF clock, internal/external reference
+$finish called at time : 245 ns : File "<source>/sim/rtl/tb_dual_dac.sv" Line 59
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Nov  3 09:23:54 2026...

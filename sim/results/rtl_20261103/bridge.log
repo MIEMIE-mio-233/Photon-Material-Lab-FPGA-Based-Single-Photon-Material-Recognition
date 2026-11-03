@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Nov  3 09:22:23 2026
+# Process ID: 25896
+# Current directory: <source>/build/bridge_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_ps_capture/xsim_script.tcl}
+# Log file: <source>/build/bridge_sim/xsim.log
+# Journal file: <source>/build/bridge_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_ps_capture/xsim_script.tcl
+# xsim {tb_ps_capture} -autoloadwcfg -runall
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+run -all
+PASS: threshold defaults/SPI/boundaries/ACK/interlocks, AXI snapshot/CDC/abort, output controls
+$finish called at time : 262870 ns : File "<source>/sim/rtl/tb_ps_capture.sv" Line 171
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Nov  3 09:22:26 2026...

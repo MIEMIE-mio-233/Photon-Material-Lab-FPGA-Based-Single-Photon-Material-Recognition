@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "platform": "XCZU4EV / Linux / PYNQ",
+  "measurement_scope": "PC HTTP round trip including response body; browser rendering excluded",
+  "catalog_context": {
+    "runtime_frames": 2920,
+    "response_bytes_before": 1115897,
+    "response_bytes_after": 1115897,
+    "public_dataset_frames": 1500
+  },
+  "before": {
+    "state": {
+      "samples_ms": [
+        63.761800000065705,
+        72.38180000058492,
+        65.28389999948558,
+        66.0844999983965
+      ],
+      "median_ms": 65.68419999894104,
+      "response_bytes": 16508
+    },
+    "plot_full": {
+      "samples_ms": [
+        32.46990000116057,
+        31.26690000135568,
+        27.382399999623885,
+        13.644700000440935
+      ],
+      "median_ms": 29.324650000489783,
+      "response_bytes": 17567
+    },
+    "plot_echo": {
+      "samples_ms": [
+        25.16249999825959,
+        12.179199999081902,
+        13.190300000132993,
+        13.148900001397124
+      ],
+      "median_ms": 13.169600000765058,
+      "response_bytes": 16328
+    },
+    "data": {
+      "samples_ms": [
+        5533.147499998449,
+        2710.228799998731,
+        5438.120099999651,
+        5407.908099998167
+      ],
+      "median_ms": 5423.014099998909,
+      "response_bytes": 1115897
+    }
+  },
+  "after": {
+    "catalog_samples_ms": [
+      193.9146000004257,
+      167.00659999696654,
+      352.8803999979573,
+      344.70320000036736,
+      181.04079999829992
+    ],
+    "catalog_median_ms": 193.9146000004257,
+    "state_samples_ms": [
+      36.59010000046692,
+      42.32570000021951,
+      48.86370000167517,
+      53.036000001156935,
+      263.60489999933634,
+      200.68700000047102,
+      50.70779999732622,
+      62.41729999965173,
+      54.59830000108923,
+      48.378700001194375,
+      38.50510000120266,
+      48.21710000032908,
+      53.03039999853354,
+      59.45939999946859,
+      37.977399999363115,
+      54.11000000094646,
+      54.9338999990141,
+      49.677899998641806,
+      47.03900000095018,
+      56.41990000003716,
+      38.98069999922882,
+      38.73830000156886,
+      66.07169999915641
+    ],
+    "state_median_ms": 50.70779999732622,
+    "plot_samples_ms": [
+      31.350599998404505,
+      30.78020000248216,
+      23.908299997856375,
+      25.8228999991843,
+      14.215399998647626
+    ],
+    "plot_median_ms": 25.8228999991843,
+    "catalog_during_capture_ms": [
+      154.4422000006307
+    ]
+  },
+  "real_capture": {
+    "frames": 5,
+    "saved": false,
+    "dataset_frame_count_unchanged": true,
+    "inference_error_count": 0,
+    "model_warmup_frame": 1,
+    "steady_frame_samples_ms": [
+      1022.952,
+      1025.54,
+      1072.208,
+      1025.426
+    ],
+    "steady_frame_median_ms": 1025.483,
+    "timings": [
+      {
+        "acquire_ms": 1002.182,
+        "read_ms": 17.946,
+        "file_read_ms": 0.0,
+        "save_ms": 0.0,
+        "extra_wait_ms": 0.0,
+        "inference_ms": 757.149,
+        "frame_total_ms": 1780.843,
+        "interval_ms": null
+      },
+      {
+        "acquire_ms": 1000.955,
+        "read_ms": 9.346,
+        "file_read_ms": 0.0,
+        "save_ms": 0.0,
+        "extra_wait_ms": 0.0,
+        "inference_ms": 10.635,
+        "frame_total_ms": 1022.952,
+        "interval_ms": 1023.278
+      },
+      {
+        "acquire_ms": 1002.558,
+        "read_ms": 9.348,
+        "file_read_ms": 0.0,
+        "save_ms": 0.0,
+        "extra_wait_ms": 0.0,
+        "inference_ms": 11.578,
+        "frame_total_ms": 1025.54,
+        "interval_ms": 1025.894
+      },
+      {
+        "acquire_ms": 1002.466,
+        "read_ms": 10.279,
+        "file_read_ms": 0.0,
+        "save_ms": 0.0,
+        "extra_wait_ms": 0.0,
+        "inference_ms": 43.527,
+        "frame_total_ms": 1072.208,
+        "interval_ms": 1072.563
+      },
+      {
+        "acquire_ms": 1002.329,
+        "read_ms": 10.457,
+        "file_read_ms": 0.0,
+        "save_ms": 0.0,
+        "extra_wait_ms": 0.0,
+        "inference_ms": 10.608,
+        "frame_total_ms": 1025.426,
+        "interval_ms": 1026.689
+      }
+    ]
+  },
+  "reproduction": {
+    "http_helper": "skill/pynq_pipeline_profiler/scripts/profile_http.py",
+    "software_checks": "sim/run_checks.py",
+    "notes": "Replay HTTP checks against the running service; catalog size affects absolute latency. Real optical acquisition requires the configured TDC/laser/detector setup."
+  }
+}

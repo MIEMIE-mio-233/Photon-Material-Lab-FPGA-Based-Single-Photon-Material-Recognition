@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "scope": "real PL historical-frame inference; no optical acquisition",
+  "models": [
+    {
+      "model_id": "d6cabfbab443",
+      "kind": "MLPClassifier",
+      "frames": 120,
+      "dimensions": 8,
+      "feature_error": 0,
+      "score_max_error": 5.10702591327572e-15,
+      "pl_poll_compute_median_ms": 1.21,
+      "ps_classification_only_median_ms": 1.6959469999164867
+    },
+    {
+      "model_id": "0972b897ec45",
+      "kind": "RandomForestClassifier",
+      "frames": 120,
+      "dimensions": 9,
+      "feature_error": 0,
+      "score_max_error": 0.0,
+      "pl_poll_compute_median_ms": 1.21,
+      "ps_classification_only_median_ms": 17.178356999920652
+    },
+    {
+      "model_id": "7fae70ad9470",
+      "kind": "TinyCNNClassifier",
+      "frames": 120,
+      "dimensions": 9,
+      "feature_error": 0,
+      "score_max_error": 1.7208456881689926e-15,
+      "pl_poll_compute_median_ms": 1.782,
+      "ps_classification_only_median_ms": 2.2517425004480174
+    }
+  ]
+}

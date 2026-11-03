@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "window_configurations": 3264,
+  "window_scope": "exhaustive small integer digital windows and selected invalid/overflow-boundary inputs; no hardware",
+  "audit_cases": [
+    "clean",
+    "text deny term",
+    "private name redaction",
+    "changed hash",
+    "docx core author",
+    "docx comment author",
+    "filename",
+    "manifest escape",
+    "cli exit 0/1/2"
+  ],
+  "request_gate_cases": [
+    "current",
+    "stale model",
+    "same key newer epoch",
+    "cancel",
+    "invalid key"
+  ],
+  "skills": 14,
+  "local_links_checked": 122,
+  "request_gate_executed": true,
+  "hardware_access": false,
+  "production_changes": false
+}

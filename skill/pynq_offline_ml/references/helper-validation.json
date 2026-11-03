@@ -1,0 +1,195 @@
+{
+  "date": "2026-10-13",
+  "passed": true,
+  "checks": 7,
+  "scope": "Skill structure, helper software tests, official package download, and existing BX71 kernel/native/portable inference; no live TDC, PL acceleration, reinstallation or second-board validation",
+  "results": [
+    {
+      "test": "pynq-offline-ml frontmatter",
+      "exit_code": 0,
+      "passed": true,
+      "output": "Skill is valid!"
+    },
+    {
+      "test": "all helper scripts parse as Python3.6",
+      "passed": true
+    },
+    {
+      "test": "official three packages SHA256",
+      "exit_code": 0,
+      "passed": true,
+      "output": {
+        "passed": true,
+        "verify_only": true,
+        "packages": [
+          {
+            "name": "python3-joblib_0.11-1_all.deb",
+            "sha256": "2b5884f17b89084e7a7ad6fddabb7e86d4e386d63699d2e02a84ac5ad6356abb",
+            "verified": true
+          },
+          {
+            "name": "python3-sklearn_0.19.1-3_all.deb",
+            "sha256": "10946a790e7d33d2411dc712e827fc37a656c0623be1305309de0816ee952060",
+            "verified": true
+          },
+          {
+            "name": "python3-sklearn-lib_0.19.1-3_armhf.deb",
+            "sha256": "3eec7a9973816e482cd4ad2c7e843f0a1af4f00d14f4adcea939623b9d3d25dc",
+            "verified": true
+          }
+        ]
+      }
+    },
+    {
+      "test": "tampered deb rejected",
+      "exit_code": 2,
+      "passed": true,
+      "output": {
+        "passed": false,
+        "error": "Package SHA256 mismatch: python3-joblib_0.11-1_all.deb"
+      }
+    },
+    {
+      "test": "original tested installer bash syntax",
+      "passed": true,
+      "output": ""
+    },
+    {
+      "test": "new helper actual PYNQ kernel and forest smoke test",
+      "passed": true,
+      "output": {
+        "python_version": "3.6.5 (default, Apr  1 2018, 05:46:30) \n[GCC 7.3.0]",
+        "python_executable": "/home/xilinx/tdc-ml-env/bin/python",
+        "machine": "armv7l",
+        "system": "Linux",
+        "pointer_bits": 32,
+        "working_directory": "/home/xilinx/tdc_material",
+        "effective_uid": 0,
+        "packages": {
+          "pynq": {
+            "available": true,
+            "version": "2.4",
+            "path": "/usr/local/lib/python3.6/dist-packages/pynq/__init__.py",
+            "has_Xlnk": true,
+            "has_allocate": false
+          },
+          "numpy": {
+            "available": true,
+            "version": "1.13.3",
+            "path": "/usr/lib/python3/dist-packages/numpy/__init__.py"
+          },
+          "scipy": {
+            "available": true,
+            "version": "0.19.1",
+            "path": "/usr/lib/python3/dist-packages/scipy/__init__.py"
+          },
+          "sklearn": {
+            "available": true,
+            "version": "0.19.1",
+            "path": "/home/xilinx/tdc_ml_offline/payload/usr/lib/python3/dist-packages/sklearn/__init__.py"
+          },
+          "joblib": {
+            "available": true,
+            "version": "0.11",
+            "path": "/home/xilinx/tdc_ml_offline/payload/usr/lib/python3/dist-packages/joblib/__init__.py"
+          },
+          "matplotlib": {
+            "available": true,
+            "version": "2.1.1",
+            "path": "/usr/lib/python3/dist-packages/matplotlib/__init__.py"
+          },
+          "ipywidgets": {
+            "available": true,
+            "version": "7.4.2",
+            "path": "/usr/local/lib/python3.6/dist-packages/ipywidgets/__init__.py"
+          },
+          "notebook": {
+            "available": true,
+            "version": "5.2.2",
+            "path": "/usr/lib/python3/dist-packages/notebook/__init__.py"
+          },
+          "IPython": {
+            "available": true,
+            "version": "5.5.0",
+            "path": "/usr/lib/python3/dist-packages/IPython/__init__.py"
+          },
+          "ipykernel": {
+            "available": true,
+            "version": "4.8.2",
+            "path": "/usr/lib/python3/dist-packages/ipykernel/__init__.py"
+          },
+          "flask": {
+            "available": true,
+            "version": "1.0.2",
+            "path": "/usr/local/lib/python3.6/dist-packages/flask/__init__.py"
+          },
+          "werkzeug": {
+            "available": true,
+            "version": "0.14.1",
+            "path": "/usr/local/lib/python3.6/dist-packages/werkzeug/__init__.py"
+          },
+          "jinja2": {
+            "available": true,
+            "version": "2.10",
+            "path": "/usr/lib/python3/dist-packages/jinja2/__init__.py"
+          },
+          "tornado": {
+            "available": true,
+            "version": "4.5.3",
+            "path": "/usr/lib/python3/dist-packages/tornado/__init__.py"
+          },
+          "threadpoolctl": {
+            "available": false,
+            "error": "ModuleNotFoundError: No module named 'threadpoolctl'"
+          }
+        },
+        "python_features": {
+          "dataclasses_available": false,
+          "path_is_relative_to": false
+        },
+        "required_apis": {
+          "sklearn.ensemble.RandomForestClassifier": true,
+          "scipy.ndimage.uniform_filter1d": true
+        },
+        "storage": {
+          "total_bytes": 31182553088,
+          "free_bytes": 24777416704
+        },
+        "memory": {
+          "MemTotal": "508556 kB",
+          "MemAvailable": "348116 kB",
+          "SwapTotal": "1048572 kB"
+        },
+        "kernel_name": "tdc-material",
+        "random_forest_smoke_test": "passed",
+        "passed": true
+      }
+    },
+    {
+      "test": "fresh official package download and LF checksum generation",
+      "passed": true,
+      "output": {
+        "passed": true,
+        "verify_only": false,
+        "packages": [
+          {
+            "name": "python3-joblib_0.11-1_all.deb",
+            "sha256": "2b5884f17b89084e7a7ad6fddabb7e86d4e386d63699d2e02a84ac5ad6356abb",
+            "verified": true
+          },
+          {
+            "name": "python3-sklearn_0.19.1-3_all.deb",
+            "sha256": "10946a790e7d33d2411dc712e827fc37a656c0623be1305309de0816ee952060",
+            "verified": true
+          },
+          {
+            "name": "python3-sklearn-lib_0.19.1-3_armhf.deb",
+            "sha256": "3eec7a9973816e482cd4ad2c7e843f0a1af4f00d14f4adcea939623b9d3d25dc",
+            "verified": true
+          }
+        ],
+        "checksum_line_endings": "LF"
+      }
+    }
+  ]
+}

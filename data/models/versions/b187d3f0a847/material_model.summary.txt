@@ -1,0 +1,6 @@
+小型CNN模型
+模型编号：b187d3f0a847
+树数：0
+类别：abs, al, cardboard, fabric_01, fabric_02, fabric_03, fabric_04, fe, feltboard, paper, pmma, pp, pvc, wood_density, wood_poplar, zn
+验证方式：per specimen/distance last 20% frames; same batch diagnostic only
+验证准确率：90.6%

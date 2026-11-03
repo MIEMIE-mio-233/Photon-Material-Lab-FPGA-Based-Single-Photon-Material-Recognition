@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "artifacts": {
+    "bit": {
+      "path": "tdc_pynq.bit",
+      "sha256": "b50f2afeaa04efbd47b10d3d1fd89c232dc8139da5cb914d4f53e0c381444385"
+    },
+    "hwh": {
+      "path": "tdc_pynq.hwh",
+      "sha256": "712dba818610632423f3bd73394ffea719f06264568e0337f7bdd3de2e060855"
+    }
+  },
+  "system": {
+    "ARCH": "zynquplus",
+    "DEVICE": "xczu4ev",
+    "NAME": "design_1",
+    "PACKAGE": "sfvc784",
+    "SPEEDGRADE": "-1"
+  },
+  "ips": {
+    "capture": {
+      "vlnv": "xilinx.com:module_ref:tdc_ps_bridge:1.0",
+      "address": {
+        "base": 2684616704,
+        "min_bytes": 65536
+      },
+      "probes": [
+        {
+          "offset": 0,
+          "value": 1413759793,
+          "safe_read_only": true
+        },
+        {
+          "offset": 4,
+          "value": 5,
+          "safe_read_only": true
+        },
+        {
+          "offset": 136,
+          "value": 125000000,
+          "safe_read_only": true
+        },
+        {
+          "offset": 196,
+          "value": 1280722003,
+          "safe_read_only": true
+        }
+      ]
+    },
+    "accelerator": {
+      "vlnv": "user.org:hls:tdc_accelerator:1.0",
+      "address": {
+        "base": 2684682240,
+        "min_bytes": 65536
+      },
+      "registers": {
+        "hist_1": {
+          "offset": 16,
+          "bits": 32
+        },
+        "model_1": {
+          "offset": 28,
+          "bits": 32
+        },
+        "result_1": {
+          "offset": 40,
+          "bits": 32
+        },
+        "model_kind": {
+          "offset": 84,
+          "bits": 32
+        },
+        "feature_count": {
+          "offset": 92,
+          "bits": 32
+        },
+        "timing_reference_bin_1": {
+          "offset": 100,
+          "bits": 32
+        },
+        "timing_reference_bin_2": {
+          "offset": 104,
+          "bits": 32
+        }
+      }
+    },
+    "histogram": {
+      "vlnv": "xilinx.com:ip:axi_bram_ctrl:4.1",
+      "address": {
+        "base": 2684354560,
+        "min_bytes": 262144
+      }
+    }
+  }
+}

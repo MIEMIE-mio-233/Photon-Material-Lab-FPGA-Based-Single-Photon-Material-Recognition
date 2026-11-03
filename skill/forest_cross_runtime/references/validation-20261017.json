@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-17",
+  "passed": true,
+  "local_non_tdc": {
+    "passed": true,
+    "synthetic": true,
+    "hardware_executed": false,
+    "classes": [
+      10,
+      20,
+      30
+    ],
+    "features": 5,
+    "compared_rows": 108,
+    "max_probability_error": 0.0,
+    "labels_equal": true,
+    "synthetic_holdout_accuracy": 1.0,
+    "scope": "native/portable equality in this runtime; synthetic data is not real sensor accuracy"
+  },
+  "p4_non_tdc": {
+    "passed": true,
+    "synthetic": true,
+    "hardware_executed": false,
+    "classes": [
+      10,
+      20,
+      30
+    ],
+    "features": 5,
+    "compared_rows": 108,
+    "max_probability_error": 0.0,
+    "labels_equal": true,
+    "synthetic_holdout_accuracy": 1.0,
+    "scope": "native/portable equality in this runtime; synthetic data is not real sensor accuracy"
+  },
+  "same_pc_model_on_p4": {
+    "passed": true,
+    "model_id": "62628fca675f",
+    "rows": 108,
+    "max_probability_error": 0.0,
+    "labels_equal": true,
+    "numpy": "1.20.3",
+    "scope": "portable inference vs supplied source reference; no sklearn import or hardware access",
+    "sha256": {
+      "portable": "f4a1c4b1122a72fb760d5a64e4386b8699210374989d57b1d19de885c32503f4",
+      "features": "59b7a59875a6d250690f2bef4632c2ce032f4228ceb465e6639823b522889d93",
+      "reference": "e1b82d8d4d80302df799084324ebe3f2805200cb3b32be48489946c071c3d2b5"
+    }
+  },
+  "production_model_modified": false,
+  "hardware_accessed": false
+}

@@ -1,0 +1,11 @@
+run_id,task_index,material_id,specimen_id,distance_cm,sample_kind,schema_version,frame_index,attempt,timestamp,trig_freq_hz,trig_num,bin_num,bin_width_ps,received_bytes,total_counts,peak_bin_index,csv_path,raw_path
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,1,1,2026-10-23T11:09:44.648570,100000,100000,65536,8,0,121594,65535,01_fabric_b_fabric_b/frame_0001.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,2,1,2026-10-23T11:09:45.700619,100000,100000,65536,8,0,121777,65535,01_fabric_b_fabric_b/frame_0002.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,3,1,2026-10-23T11:09:46.752268,100000,100000,65536,8,0,121592,65535,01_fabric_b_fabric_b/frame_0003.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,4,1,2026-10-23T11:09:47.799229,100000,100000,65536,8,0,121838,65535,01_fabric_b_fabric_b/frame_0004.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,5,1,2026-10-23T11:09:48.836782,100000,100000,65536,8,0,121910,65535,01_fabric_b_fabric_b/frame_0005.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,6,1,2026-10-23T11:09:49.877734,100000,100000,65536,8,0,121911,65535,01_fabric_b_fabric_b/frame_0006.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,7,1,2026-10-23T11:09:50.921449,100000,100000,65536,8,0,121767,65535,01_fabric_b_fabric_b/frame_0007.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,8,1,2026-10-23T11:09:51.968893,100000,100000,65536,8,0,121844,65535,01_fabric_b_fabric_b/frame_0008.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,9,1,2026-10-23T11:09:53.015886,100000,100000,65536,8,0,121653,65535,01_fabric_b_fabric_b/frame_0009.npy,
+run_20261023_110944_635156_2e76a6,1,fabric_b,fabric_b,25.0,material,2,10,1,2026-10-23T11:09:54.051807,100000,100000,65536,8,0,121917,65535,01_fabric_b_fabric_b/frame_0010.npy,

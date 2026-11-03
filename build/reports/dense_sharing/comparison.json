@@ -1,0 +1,84 @@
+{
+  "comparable": true,
+  "budget_passed": true,
+  "budget_failures": [],
+  "contract": {
+    "scope": "tdc_accelerator top-level HLS estimate, identical function and interfaces",
+    "equivalence": "Both variants pass the same 88-word historical CNN fixture; absolute tolerance 1e-12",
+    "controlled_change": "Separate convolution_layer implementation versus shared dense_layer call",
+    "before_source_sha256": "84d5b97a4572d976d2935f91bdbcb637779e99ef5644bcb17f6128e85c182d8c",
+    "after_source_sha256": "3c66d2cfd4376cdc4c94b5557ffdd2a6e6e8bdd20f02320720682c38303a150b",
+    "constraints_sha256": "4df1a2a32a9a3a488b39a9dac2a8eb80560830c16b83aca6189189fab6d9409e",
+    "fixture_sha256": "4dd8b3635b71b3c67cf3cbbc60e8749cefcfb6f6b3414b2dd72de98dc6d4e0ba"
+  },
+  "before": {
+    "sha256": "929d02c4130cff499375b132eb75c45994bf72e09dfe0f9c6f4871cf53803c30",
+    "tool": "2020.2",
+    "device": "xczu4ev-sfvc784-1-i",
+    "stage": "hls_estimate",
+    "top": "tdc_accelerator",
+    "clock_ns": 10.0,
+    "uncertainty_ns": 2.7,
+    "resources": {
+      "LUT": 35403.0,
+      "FF": 20034.0,
+      "DSP": 54.0,
+      "BRAM_18K": 42.0
+    },
+    "estimated_clock_ns": 13.838
+  },
+  "after": {
+    "sha256": "5c741de25e9299fd697567b6beaa48b10e6f70d8567f59404aa6c5438270b25f",
+    "tool": "2020.2",
+    "device": "xczu4ev-sfvc784-1-i",
+    "stage": "hls_estimate",
+    "top": "tdc_accelerator",
+    "clock_ns": 10.0,
+    "uncertainty_ns": 2.7,
+    "resources": {
+      "LUT": 32547.0,
+      "FF": 17031.0,
+      "DSP": 40.0,
+      "BRAM_18K": 36.0
+    },
+    "estimated_clock_ns": 13.838
+  },
+  "changes": {
+    "LUT": {
+      "before": 35403.0,
+      "after": 32547.0,
+      "delta": -2856.0,
+      "reduction_percent": 8.067112956529108
+    },
+    "FF": {
+      "before": 20034.0,
+      "after": 17031.0,
+      "delta": -3003.0,
+      "reduction_percent": 14.9895178197065
+    },
+    "DSP": {
+      "before": 54.0,
+      "after": 40.0,
+      "delta": -14.0,
+      "reduction_percent": 25.925925925925927
+    },
+    "BRAM_18K": {
+      "before": 42.0,
+      "after": 36.0,
+      "delta": -6.0,
+      "reduction_percent": 14.285714285714286
+    }
+  },
+  "scope_note": "HLS estimates and routed implementation counts are separate stages; source/fixture identities are supplied by the caller.",
+  "release_source_sha256": "b3f1387899bfc98125a57f3eed857e1cf2c0b3090e27fcfc6136f75183212462",
+  "fixture_sha256": {
+    "baseline.bin": "bf021f947c5118653701263c7ad235cf2d9c3f98fbb2b3513223a253f7598b76",
+    "check_rtl.cpp": "5d3318148988adc9df753fc1e0dd4968903563a6ffcde4bb9755077df1562ed1",
+    "dimensions.bin": "e2ea9198dae5b60c4dcf5dfe86c1f114bba514f7af2f8dbf15a8ca034804fc3a",
+    "expected.bin": "4dd8b3635b71b3c67cf3cbbc60e8749cefcfb6f6b3414b2dd72de98dc6d4e0ba",
+    "histogram.bin": "46bdb174913b788101cb881fad3cf408e46a77e7177c56a47a50f504b7a0729d",
+    "model.bin": "52fbe56f23d5ef4151798f2844ff115d8d0ddea0b6eebc35467820b65ecd6223"
+  },
+  "execution_script_sha256": "4df1a2a32a9a3a488b39a9dac2a8eb80560830c16b83aca6189189fab6d9409e",
+  "reproduction_script_sha256": "017fc53f74e4963a85c58a4090e659125e9ba3f9bedf02e68230a8471df755d2"
+}

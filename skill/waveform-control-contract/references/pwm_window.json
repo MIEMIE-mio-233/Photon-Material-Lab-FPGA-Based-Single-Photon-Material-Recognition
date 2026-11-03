@@ -1,0 +1,7 @@
+{
+  "period_ticks": 100,
+  "phase_ticks": 80,
+  "width_ticks": 40,
+  "active_level": 0,
+  "scope": "synthetic periodic integer-tick example; no physical device or voltage claim"
+}

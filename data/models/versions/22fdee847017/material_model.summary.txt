@@ -1,0 +1,6 @@
+小型MLP模型
+模型编号：22fdee847017
+树数：0
+类别：abs, al, cardboard, fabric_01, fabric_02, fabric_03, fabric_04, fe, feltboard, paper, pmma, pp, pvc, wood_density, wood_poplar, zn
+验证方式：per specimen/distance last 20% frames; same batch diagnostic only
+验证准确率：99.4%

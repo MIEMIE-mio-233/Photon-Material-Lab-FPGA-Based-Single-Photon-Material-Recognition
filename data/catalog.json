@@ -1,0 +1,85 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-27",
+  "frames": 1580,
+  "batches": 88,
+  "material_frames": 1400,
+  "background_frames": 180,
+  "classes": {
+    "abs": "ABS塑料",
+    "al": "铝",
+    "cardboard": "瓦楞纸",
+    "fabric_01": "织物01",
+    "fabric_02": "织物02",
+    "fabric_03": "织物03",
+    "fabric_04": "织物04",
+    "fe": "铁",
+    "feltboard": "毛毡板",
+    "paper": "纸",
+    "pmma": "聚甲基丙烯酸甲酯",
+    "pp": "聚丙烯",
+    "pvc": "聚氯乙烯",
+    "wood_density": "密度板",
+    "wood_poplar": "杨木",
+    "zn": "锌"
+  },
+  "models": {
+    "random_forest": "20b03ad1f99b",
+    "mlp": "22fdee847017",
+    "tiny_cnn": "b187d3f0a847"
+  },
+  "active_model": "20b03ad1f99b",
+  "distance_cm": 15,
+  "illumination": "shielded",
+  "frames_per_material": 50,
+  "evaluation_train_frames": 640,
+  "evaluation_test_frames": 160,
+  "scope": "single session; one physical specimen per material; last 10 frames per material held out for diagnostic evaluation; deployed models refit on all 800 frames",
+  "background_scope": "historical background batches; acquisition settings may differ from the current material session; auxiliary reference only",
+  "subsets": {
+    "distance_experiment": {
+      "batches": 60,
+      "frames": 600,
+      "distances_cm": [
+        10,
+        15,
+        20,
+        25,
+        30
+      ]
+    },
+    "fixed_distance_current": {
+      "batches": 16,
+      "frames": 800,
+      "distance_cm": 15,
+      "classes": 16
+    },
+    "historical_background": {
+      "batches": 12,
+      "frames": 180
+    }
+  },
+  "all_saved_material_ids": [
+    "abs",
+    "al",
+    "cardboard",
+    "density",
+    "fabric_01",
+    "fabric_02",
+    "fabric_03",
+    "fabric_04",
+    "fabric_a",
+    "fabric_b",
+    "fe",
+    "feltboard",
+    "pa",
+    "paper",
+    "pmma",
+    "poplar",
+    "pp",
+    "pvc",
+    "wood_density",
+    "wood_poplar",
+    "zn"
+  ]
+}

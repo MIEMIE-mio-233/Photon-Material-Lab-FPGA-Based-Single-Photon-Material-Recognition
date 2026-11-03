@@ -1,0 +1,82 @@
+{
+  "date": "2026-11-03",
+  "passed": true,
+  "scope": "RTL behavioral simulation; no optical stimulus or board programming",
+  "log_normalization": "Workspace prefixes and workstation identity replaced; diagnostics and verdicts retained",
+  "tests": [
+    {
+      "test": "bridge",
+      "top": "tb_ps_capture",
+      "passed": true,
+      "tool": "Vivado XSIM 2020.2",
+      "source_sha256": {
+        "src/rtl/internal_trigger_gen.v": "1c3f7a1f14c981c09956eb1d4ac796850b485ec30fcfb7ab9ea5da68ecb63bba",
+        "src/rtl/dac/tlv5618.v": "e92327f772a94f989904ed5624287e418fbb68bc6c25ac2810a8a8912e2cda5b",
+        "src/rtl/dac/dac_ctrl.v": "f863965d5dfca4f2fa5a11a2d0d7c2be581d73eb094af450ab834cba0f9f100a",
+        "src/rtl/ps_bridge/ps_threshold_control.v": "051d285074f4ee350f0204d26e7a9c930e9a37b2d80b73bf71aad159e842d3f0",
+        "src/rtl/ps_bridge/ps_output_control.v": "c5c8465e95110eec4d1d6bc3989a522cf5aaa946b6d13c1d326e9b8d6a64de4d",
+        "src/rtl/ps_bridge/tdc_ps_bridge.v": "8150080b5fdf516a6830e20a4fa165fa019fdbcf5b28c2cc06b23d5ef60fdc80",
+        "sim/rtl/tb_ps_capture.sv": "4d7392b8bd9a9138940f93f27012c245762083392909eae65035cb1b6c5cdcc5"
+      },
+      "log": "bridge.log",
+      "log_sha256": "cf5f96545ba1b28bed59945a7e024d1d8b26d13e3a32bec3de97595a5fb06c87",
+      "original_log_sha256": "4dee735733feab649344265b21337451a509daf7779fa314e430cace86c5a7dd",
+      "pass_lines": [
+        "PASS: threshold defaults/SPI/boundaries/ACK/interlocks, AXI snapshot/CDC/abort, output controls"
+      ]
+    },
+    {
+      "test": "tof",
+      "top": "tb_tof_snapshot",
+      "passed": true,
+      "tool": "Vivado XSIM 2020.2",
+      "source_sha256": {
+        "src/rtl/tof.v": "fb2f9e74dc8895f02659a2e4157632baf634bc6b73be249294332e8bafa0515c",
+        "sim/rtl/tb_tof_snapshot.sv": "de00116edbb27ae13b0970da7a64b11231b08b32817be9d38786badd7c02bbf7"
+      },
+      "log": "tof.log",
+      "log_sha256": "76e4e57e706aff7d6ebe505e5c9a858b6728c7351a29308002e99ba9e71120ba",
+      "original_log_sha256": "936b0b4d0240e3a9554494f915916485be5735e63074b92128bc82539bb1e972",
+      "pass_lines": [
+        "PASS: real TOF 65536-bin snapshot + shared RAM PS read/write + UDP-independent capture"
+      ]
+    },
+    {
+      "test": "dual_dac",
+      "top": "tb_dual_dac",
+      "passed": true,
+      "tool": "Vivado XSIM 2020.2",
+      "source_sha256": {
+        "src/rtl/dual_dac_trigger.v": "8f6d81d43202ec2ba9ef8671d696388e3499a8c24da73cb81dd26558b72cb3d9",
+        "src/rtl/tdc_reference_mux.v": "6b291627fc52b9eaa182371c4c22a4c2f05e3f24b91e717ad50074aef6813f8e",
+        "sim/rtl/tb_dual_dac.sv": "3ae8832c8284e23208ac8af7a17ec9ec1650b62650daca97bb6a93da4cb1c93b"
+      },
+      "log": "dual_dac.log",
+      "log_sha256": "35c844d18ad4c1c1b30f7f60c3e053fa5c9db084374497de32d908153b27618f",
+      "original_log_sha256": "6d2f710a2769f7e06c23b72b503b86d10a2d1dcf101736c5dbf93ba24857a14f",
+      "pass_lines": [
+        "PASS: dual DAC 125MHz, half-cycle setup, codes, OFF clock, internal/external reference"
+      ]
+    },
+    {
+      "test": "trigger",
+      "top": "tb_internal_trigger_gen",
+      "passed": true,
+      "tool": "Vivado XSIM 2020.2",
+      "source_sha256": {
+        "src/rtl/internal_trigger_gen.v": "1c3f7a1f14c981c09956eb1d4ac796850b485ec30fcfb7ab9ea5da68ecb63bba",
+        "sim/rtl/tb_internal_trigger_gen.sv": "16f91c5aadb13d34ecc51e0f1a5c44d8b7125d51f98efb28144a4665dd42284a"
+      },
+      "log": "trigger.log",
+      "log_sha256": "07ad706903bcf249ee501ae0837be1e91a6bb5bcb0878f176c5f76e83e7c7308",
+      "original_log_sha256": "dff5b159014371c9a765a9a4a5aed20f43275f404f4d19f7298380c11ffc5915",
+      "pass_lines": [
+        "PASS: default 100kHz, laser 5us, receiver delay 800ns / width 8us",
+        "PASS: delayed 10ns laser pulse, both widths adjustable, atomic boundary update",
+        "PASS: wrapping windows, first complete pulse, boundary equality and 33-bit endpoint",
+        "PASS: invalid input rejection, minimum widths, disable/restart",
+        "ALL TESTS PASSED"
+      ]
+    }
+  ]
+}

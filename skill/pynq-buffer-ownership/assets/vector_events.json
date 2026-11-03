@@ -1,0 +1,12 @@
+[
+ {"event":"alloc","buffer":"input","coherent":false},
+ {"event":"alloc","buffer":"output","coherent":false},
+ {"event":"cpu_write","buffer":"input"},
+ {"event":"flush","buffer":"input"},
+ {"event":"start","reads":["input"],"writes":["output"]},
+ {"event":"done"},
+ {"event":"invalidate","buffer":"output"},
+ {"event":"cpu_read","buffer":"output"},
+ {"event":"free","buffer":"input"},
+ {"event":"free","buffer":"output"}
+]

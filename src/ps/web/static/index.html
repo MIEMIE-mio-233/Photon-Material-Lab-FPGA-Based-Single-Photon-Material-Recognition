@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#10171c" name="theme-color"/>
+<title>火眼金睛 · TDC 材质识别</title>
+<link href="/static/style.css?v=workflow-20261024" rel="stylesheet"/>
+<script defer="" src="/static/ui.js?v=workflow-20261024"></script>
+<script defer="" src="/static/compare.js?v=workflow-20261024"></script>
+<script defer="" src="/static/performance.js?v=workflow-20261024"></script>
+<script defer="" src="/static/dac_levels.js?v=workflow-20261024"></script>
+<script defer="" src="/static/output_timing.js?v=workflow-20261024"></script>
+<script defer="" src="/static/distance_result.js?v=workflow-20261024"></script>
+<script defer="" src="/static/live_ranging.js?v=workflow-20261024"></script>
+<script defer="" src="/static/batch_picker.js?v=workflow-20261024"></script><script defer="" src="/static/model_manager.js?v=workflow-20261024"></script>
+
+<script defer="" src="/static/app.js?v=workflow-20261024"></script>
+</head>
+<body>
+<aside class="sidebar">
+<div class="brand"><span class="brand-mark"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 18h7l4-11 5 20 4-13 3 4h5"></path></svg></span><div><strong>火眼金睛</strong><small>PHOTON MATERIAL LAB</small></div></div>
+<div class="side-label">实验工作台</div>
+<nav aria-label="工作区">
+<button class="nav active" data-panel="output"><span>01</span>参数与配置<i>↗</i></button>
+<button class="nav" data-panel="capture"><span>02</span>采集与识别<i>↗</i></button>
+<button class="nav" data-panel="data"><span>03</span>数据与对比<i>↗</i></button>
+<button class="nav" data-panel="train"><span>04</span>模型与训练<i>↗</i></button>
+</nav>
+<div class="side-note"><span class="dot"></span> MPSoC-P4 · XCZU4EV<div>PL采集与推理 · PS网页与训练</div></div>
+<div class="side-bottom"><span>实验流程</span><div>采集 → 特征 → 材质识别</div><small>在开发板上完成训练与识别</small></div>
+</aside>
+<main>
+<header class="topbar"><div><span class="eyebrow">TDC CONTROL CONSOLE</span><h1>TDC 材质识别平台</h1><p>参数配置、光子数据采集与材质识别</p></div><div class="header-actions"><span class="badge" id="connection">正在连接</span><a class="text-link" href="/api/model/download/report">当前模型报告 ↗</a></div></header>
+<div class="notice hidden" id="notice" role="alert"></div>
+<section aria-label="实验概况" class="metrics">
+<div class="metric"><span>当前任务</span><strong id="taskStatus">准备就绪</strong><small id="taskDescription">等待操作</small></div>
+<div class="metric"><span>数据总帧数</span><strong id="datasetFrames">—</strong><small id="datasetDetails">读取中</small></div>
+<div class="metric"><span>当前模型</span><strong><span id="modelAlgorithmName">树分类器</span> <em id="treeCount">—</em></strong><small id="modelDescription">读取中</small></div>
+<div class="metric accent"><span>最近识别</span><strong id="materialMetric">—</strong><small id="scoreMetric">等待一帧数据</small></div>
+</section>
+<section class="panel" id="panel-output">
+<div class="card control-card output-card">
+<div class="card-heading"><div><span class="eyebrow">PARAMETERS &amp; CONFIGURATION</span><h2>参数与配置</h2></div><div class="buttons"><button class="button small" id="loadOutputOverlay">加载本项目 Overlay</button><span class="badge" id="outputBadge">未加载硬件</span></div></div>
+<section aria-label="参考源设置" class="config-section reference-section">
+<div class="control-footer reference-controls"><label>TDC参考源<select id="referenceSource"><option value="external">外部LVDS · B3/A3（J1-32/30）</option><option selected="" value="internal">内部回接 · DAC1触发</option></select></label><button class="button" disabled="" id="applyReference">切换参考源</button><span class="muted" id="referenceActual">加载后默认使用DAC1内部参考</span></div>
+</section>
+<section aria-labelledby="waveformConfigHeading" class="config-section">
+<div class="config-section-heading"><h3 id="waveformConfigHeading">触发与门控输出</h3><span class="muted">DAC1 · 激光触发　/　DAC2 · 接收门控</span></div>
+<div class="form-grid output-grid">
+<label>输出频率 / kHz<input id="outputFrequency" min="0.001" step="any" type="number" value="100"/></label>
+<label>激光触发相位 / ns<input id="laserDelay" min="0" step="any" type="number" value="0"/></label>
+<label>激光高电平时长 / ns<input id="laserWidth" min="0" step="any" type="number" value="5000"/></label>
+<label>探测开启相位 / ns<input id="gateDelay" min="0" step="any" type="number" value="9000"/></label>
+<label>探测开启时长 / ns<input id="gateWidth" min="0" step="any" type="number" value="2000"/></label>
+</div>
+<div class="form-grid dac-level-grid">
+<label>DAC1低电平 / 正向码<input id="dac1Low" max="1023" min="0" step="1" type="number" value="511"/></label>
+<label>DAC1高电平 / 正向码<input id="dac1High" max="1023" min="0" step="1" type="number" value="1023"/></label>
+<label>DAC2开启（低）/ 正向码<input id="dac2Low" max="1023" min="0" step="1" type="number" value="511"/></label>
+<label>DAC2关闭（高）/ 正向码<input id="dac2High" max="1023" min="0" step="1" type="number" value="1023"/></label>
+</div>
+<p class="hint" id="outputActual">先加载版本5 Overlay。相位相对周期起点；相位和时长均小于周期，二者之和允许跨周期，按8 ns量化。</p>
+<div aria-label="已配置的数字输出时序" class="output-timing" id="outputTiming">
+<div class="timing-heading"><strong>已配置数字时序</strong><span class="muted" id="timingState">加载后显示</span></div>
+<div class="timing-row"><span>激光触发 · 高有效</span><div class="timing-track laser-track" id="laserTimingTrack"></div></div>
+<div class="timing-row"><span>探测窗口 · 低有效</span><div class="timing-track gate-track" id="gateTimingTrack"></div></div>
+<div class="timing-axis"><span>周期起点</span><span id="timingPeriod">—</span></div>
+<p class="muted" id="timingRanges">绿色区间表示允许探测；示意图不包含激光器、接收器及线缆延迟。</p>
+</div>
+</section>
+<section aria-labelledby="thresholdConfigHeading" class="config-section threshold-section">
+<div class="config-section-heading"><h3 id="thresholdConfigHeading">前端比较阈值</h3><span class="badge" id="thresholdBadge">默认0.300 V</span></div>
+<div class="threshold-controls">
+<div class="form-grid threshold-grid">
+<label>前端 DAC A 阈值 / V<input id="thresholdA" inputmode="decimal" max="1" min="0" step="0.002" type="number" value="0.300"/></label>
+<label>前端 DAC B 阈值 / V<input id="thresholdB" inputmode="decimal" max="1" min="0" step="0.002" type="number" value="0.300"/></label>
+</div>
+<button class="button" disabled="" id="applyThresholds">应用阈值</button>
+</div>
+<div class="config-status-row"><p aria-live="polite" class="muted" id="thresholdActual" role="status">加载Overlay后，两路自动写入0.300 V。</p><span class="muted">停止采集并关闭持续输出后可修改</span></div>
+</section>
+<div class="config-actionbar">
+<div class="config-apply-actions"><div class="buttons"><button class="button primary" id="applyOutputs">应用输出参数</button><button class="button" disabled="" id="restoreDefaults" title="恢复本页全部硬件参数，持续输出保持关闭">恢复全部默认</button><button aria-pressed="false" class="button" disabled="" id="toggleOutputs">开启持续输出</button></div><span class="muted">恢复默认会关闭持续输出；持续输出独立于采集任务</span></div>
+</div>
+<details class="help-details"><summary>接口与参数说明</summary><p class="hint">DAC1模拟输出接激光触发，DAC2接接收门控；前端测量通道的LVDS正负端接C1/B1（J1-36/34），参考通道接B3/A3（J1-32/30）。选择内部参考即可在FPGA内回接。参考源与电平码值需在停止采集、关闭输出后修改。</p>
+<p class="hint">正向码范围0～1023，数值越大，输出电压越高。名义±5 V量程下，511约为0 V；1023对应模块当前可输出的最高电压（不固定为5 V）；实际电压取决于电位器和负载，以示波器实测为准。网页已补偿模块反相。关闭持续输出时，DAC1保持低电平，DAC2保持高电平以关闭探测。</p>
+<p class="hint">探测窗口下降沿开启、上升沿关闭。默认相位9000 ns、时长2000 ns，在100 kHz下跨至下一周期1000 ns。激光参数描述电触发信号，不代表实际出光时刻；设置相位只调整周期位置，不表示启动后额外等待多个周期。</p>
+<p class="hint">前端比较阈值设置TLV5618前端DAC产生的比较门限，范围0～1.000 V，按0.002 V就近量化；不改变激光触发、接收门控波形的高低电平。A/B与前端模拟通道的对应关系以实际接线为准。显示值为完成串行发送的设置值，不是模拟电压实测值。</p></details>
+</div>
+<div class="card control-card"><div class="card-heading"><div><span class="eyebrow">RANGE CALIBRATION</span><h2>多点测距校准</h2></div></div>
+<div class="form-grid"><label>样品实际距离 / cm<input id="rangeKnownDistance" max="10000" min="0.01" step="any" type="number" value="20"/></label></div>
+<div class="buttons"><button class="button primary" id="captureRangePoint">采集此点（10帧）</button><button class="button" disabled="" id="applyRangeMulti">应用校准</button></div>
+<p class="hint" id="rangeCalibrationStatus">读取校准状态…</p>
+<p class="muted">至少采集3个不同距离，每点固定10帧，约10秒。删除已用于拟合的点后需重新应用。</p>
+<div class="table-scroll"><table class="compare-table range-table"><thead><tr><th>点</th><th>实际距离 / cm</th><th>帧数</th><th>前峰中位 / bin</th><th>回波峰中位 / bin</th><th>操作</th></tr></thead><tbody id="rangePoints"><tr><td colspan="6">尚未采集校准点</td></tr></tbody></table></div>
+</div>
+</section>
+<section class="panel hidden" id="panel-capture">
+<div class="card control-card"><div class="card-heading"><div><span class="eyebrow">ACQUISITION</span><h2>采集控制</h2></div><span class="badge amber" id="captureSourceBadge">历史数据演示</span></div>
+<div class="form-grid">
+<label>数据来源<select id="source"><option value="history">历史数据演示 · 随机读取已有帧</option><option value="pl">板内 TDC · 内部 AXI 采集</option></select></label>
+<label>推理位置<select id="inferenceBackend"><option value="cpu">PS CPU · 分类识别</option><option value="pl">PL · 特征提取 + 分类识别</option></select></label><div class="quick-model-field"><label for="captureModelSelect">识别模型</label><div class="quick-model-controls"><select id="captureModelSelect"><option value="">读取模型…</option></select><button class="button" id="applyCaptureModel" type="button">启用模型</button></div></div>
+<label class="hidden" id="materialField">材质编号 / 选填<input disabled="" id="material" pattern="[a-z0-9_]+" placeholder="留空表示未标注"/></label>
+<label class="hidden" id="specimenField">实物编号 / 选填<input disabled="" id="specimen" pattern="[a-z0-9_]+" placeholder="例如 abs_02"/></label>
+<label class="hidden" id="distanceField">样品距离 / cm<input disabled="" id="distance" max="10000" min="0.01" step="any" type="number" value="15"/></label>
+
+
+
+<label>批量帧数<input id="frameCount" max="1000" min="1" type="number" value="10"/></label>
+
+<div class="checkboxes"><label><input checked="" id="autoRecognize" type="checkbox"/>每帧自动识别</label><label id="saveDataField"><input disabled="" id="saveData" type="checkbox"/>保存采集数据</label></div>
+</div>
+<details class="auxiliary-records hidden" id="auxiliaryRecords"><summary>辅助记录</summary><div class="form-grid"><label class="hidden" id="illuminationField">采集类型<select disabled="" id="illumination"><option value="shielded">遮光</option><option value="partial">半遮光</option><option value="exposed">暴露</option></select></label><label class="hidden" id="experimentRoundField">实验轮次<input disabled="" id="experimentRound" maxlength="64" value="round_01"/></label><label class="hidden" id="sampleKindField">样本用途<select disabled="" id="sampleKind"><option value="material">材质样本</option><option value="blocked_background">遮挡激光背景</option><option value="empty_background">空场背景 · 激光出光</option></select></label></div></details>
+<div class="control-footer"><div class="buttons"><button class="button primary" id="singleCapture">采集一帧</button><button class="button" id="batchCapture">批量采集</button><button class="button" id="continuousCapture">连续采集</button></div><button class="button danger stop-button" disabled="">停止当前任务</button></div>
+<details class="network-details"><summary>板内连接与Overlay<span id="networkBadge">读取中</span></summary><p id="networkDetails"></p><div class="buttons"><button class="button" id="loadOverlay">加载本项目 Overlay</button><span class="muted" id="hardwareStatus">尚未加载；CPU演示可直接使用</span></div><p class="hint">加载会重新配置PL；首次实际采集前请确认触发、门控与接线。电脑只连接PS网口；TDC通过内部AXI连接PS。</p><div class="parameter-grid"><div>参考频率（默认）<strong>100 kHz</strong></div><div>触发次数<strong>100,000 / 帧</strong></div><div>直方图<strong>65,536 bin × 8 ps</strong></div><div>100 kHz时累积时间<strong>1 秒 / 帧</strong></div></div><p class="muted">真实累积时间由通道1收到的参考触发次数决定；不包含绘图、保存和训练。</p></details>
+</div>
+</section>
+<section class="panel hidden" id="panel-data">
+<div class="card control-card"><div class="card-heading"><div><span class="eyebrow">DATA COMPARISON</span><h2>数据浏览与对比</h2></div><button class="button small" id="refreshData">刷新数据</button></div>
+<div aria-label="数据查看模式" class="segmented data-mode-switch" role="group"><button aria-pressed="true" class="data-mode active" data-mode="single">查看单帧</button><button aria-pressed="false" class="data-mode" data-mode="compare">多帧对比</button></div>
+
+<div class="form-grid data-picker-grid" id="dataPicker"><div class="data-batch-field"><label>采集批次</label><details class="batch-picker searchable-batches" id="dataBatchPicker"><summary><strong id="dataBatchSummary">全部批次</strong><span class="batch-arrow">⌄</span></summary><div class="batch-menu"><div class="batch-filter-grid">
+<label class="batch-search">搜索<input autocomplete="off" id="dataBatchSearch" placeholder="材质、实物或批次编号" type="search"/></label>
+<label>日期<input id="dataBatchDate" type="date"/></label>
+<label>材质<select id="dataBatchMaterial"><option value="">全部材质</option></select></label>
+<label>实物<select id="dataBatchSpecimen"><option value="">全部实物</option></select></label>
+<details class="batch-extra"><summary>附加筛选</summary><div class="batch-filter-extra">
+<label>光照<select id="dataBatchLight"><option value="">全部光照</option><option value="shielded">遮光</option><option value="partial">半遮光</option><option value="exposed">暴露</option><option value="unknown">未记录</option></select></label>
+<label>距离 / cm<select id="dataBatchDistance"><option value="">全部距离</option></select></label>
+</div></details><button class="text-button" id="dataBatchReset" type="button">重置筛选</button>
+</div><div aria-label="采集批次列表" class="batch-results" id="dataBatchResults" role="group"></div></div></details><select aria-hidden="true" class="hidden" id="runSelect" tabindex="-1"><option value="">全部批次</option></select></div><label><span id="framePickerLabel">单帧文件</span><select id="frameSelect"><option value="">正在读取数据</option></select></label><label id="dataBackendField">推理位置<select id="compareBackend"><option value="cpu">PS CPU</option><option value="pl">PL 加速</option></select></label></div>
+<div class="control-footer"><div class="buttons"><div class="buttons" id="singleFrameControls"><button class="button primary" id="plotFile">显示波形</button><button class="button" id="recognizeFile">识别当前帧</button></div><div class="buttons file-batch-actions"><label class="button upload-label">上传单帧文件<input accept=".csv,.npy" hidden="" id="upload" type="file"/></label><div class="buttons" id="singleBatchManagement"><button class="button danger" disabled="" id="deleteRun">永久删除所选批次</button></div></div></div><span class="muted" id="selectedPath">支持CSV和NPY直方图</span></div>
+<div class="compare-selection hidden" id="multiFrameControls">
+<div class="buttons"><button class="button primary" id="addCompare">加入所选帧</button></div>
+<div class="compare-selection-heading"><strong>待对比 <span id="compareSelectionCount">0 / 4 帧</span></strong><button class="text-button" disabled="" id="clearCompare">清空列表</button></div>
+<div class="compare-selected" id="compareSelected"><span class="muted">选择文件后点击“加入所选帧”，支持跨批次选择，最多4帧。</span></div>
+<div class="compare-actions"><div class="buttons"><button class="button" disabled="" id="plotCompare">查看波形</button><button class="button primary" disabled="" id="recognizeCompare">识别并对比</button></div></div>
+<p class="muted">每帧使用当前选择的模型重新识别；“叠加波形”不运行分类。</p>
+</div>
+
+</div>
+<div class="hidden" id="comparisonWorkspace">
+<div class="card waveform-card compare-waveform"><div class="card-heading"><div><span class="eyebrow">FRAME OVERLAY</span><h2>波形对比</h2></div><div class="segmented"><button class="compare-view active" data-view="full">完整波形</button><button class="compare-view" data-view="echo">回波区域</button></div><div aria-label="波形布局" class="segmented"><button aria-pressed="true" class="compare-layout active" data-layout="overlay">叠加波形</button><button aria-pressed="false" class="compare-layout" data-layout="split">分图查看</button></div></div>
+<div class="chart-wrap" id="compareOverlayWrap"><canvas aria-label="最多4帧直方图叠加，横轴为bin位置，纵轴为计数" id="compareHistogram"></canvas><div class="chart-placeholder" id="comparePlaceholder"><strong>等待对比数据</strong><span>加入1至4帧后，点击叠加波形或识别并对比</span></div></div><div class="compare-small-multiples hidden" id="compareSmallMultiples"></div>
+<div class="compare-legend" id="compareLegend"></div><div class="file-caption" id="compareRange">完整图：线性纵轴 0–500</div>
+</div>
+<div class="card comparison-results hidden" id="comparisonFeatures"><div class="card-heading"><h2>关键特征对照</h2><span class="badge">差值相对第1帧</span></div><div class="table-scroll"><table class="compare-table feature-compare-table"><thead id="featureCompareHead"></thead><tbody id="featureCompareRows"></tbody></table></div></div><div class="card comparison-results"><div class="card-heading"><div><span class="eyebrow">INFERENCE COMPARISON</span><h2>逐帧结果对照</h2></div><span class="muted" id="compareInfo">尚未开始</span></div>
+<div class="table-scroll"><table class="compare-table"><thead><tr><th>文件</th><th>预测材质</th><th id="compareScoreHeader">参考分数</th><th>估计距离 / cm</th><th>参考峰</th><th>回波峰</th><th>总计数</th><th title="包含模型准备及PS/PL数据搬运；不含采集、读文件与网页刷新">识别总耗时</th><th title="PS：特征提取及分类；PL：启动至完成的PS侧观测时间，含轮询开销">计算耗时</th><th>状态</th></tr></thead><tbody id="compareRows"><tr><td class="muted" colspan="10">等待对比结果</td></tr></tbody></table></div>
+</div>
+</div>
+
+</section>
+<section class="workspace hidden" id="workspace">
+<div class="card waveform-card"><div class="card-heading"><div><span class="eyebrow">PHOTON HISTOGRAM</span><h2>回波直方图</h2></div><div class="segmented"><button class="view-button active" data-view="full">完整波形</button><button class="view-button" data-view="echo">回波区域</button></div></div>
+<div class="chart-wrap"><canvas aria-label="直方图，横轴为 bin 位置，纵轴为计数" id="histogram"></canvas><div class="chart-placeholder" id="chartPlaceholder"><svg aria-hidden="true" viewbox="0 0 80 40"><path d="M0 34h10l5-25 5 25h15l7-14 7 14h31"></path></svg><strong>等待一帧光子回波</strong><span>点击采集，或选择数据文件</span></div></div>
+<div class="chart-footer"><span><i class="legend signal"></i>原始计数</span><span><i class="legend reference"></i>参考峰</span><span><i class="legend echo"></i>真实回波</span><span id="chartRange">完整图：线性纵轴 0–500</span></div><div class="file-caption" id="framePath">尚未选择数据</div>
+<section aria-labelledby="captureHistoryHeading" class="capture-history hidden" id="captureHistory">
+<div class="card-heading"><h3 id="captureHistoryHeading">逐帧采集记录</h3><span class="muted" id="captureHistoryInfo">开始采集后记录每帧结果</span></div>
+<div class="table-scroll capture-history-scroll"><table class="compare-table"><thead><tr><th>帧</th><th>材质</th><th>保存</th><th>整帧处理</th><th>采集等待</th><th>读取</th><th>保存耗时</th><th>识别耗时</th><th>两帧完成间隔</th></tr></thead><tbody id="captureRows"><tr><td class="muted" colspan="9">等待采集</td></tr></tbody></table></div>
+</section>
+</div>
+<div class="card result-card"><div class="card-heading"><div><span class="eyebrow">MATERIAL INFERENCE</span><h2>识别结果</h2></div><span class="badge" id="resultSource">等待数据</span></div><div class="result-main"><span>预测材质</span><strong id="resultMaterial">—</strong><div id="resultScore">参考分数 —</div></div><div class="timing-stats"><div title="包含模型准备及PS/PL数据搬运；不含采集、读文件与网页刷新。首次加载模型会使总耗时增加。">识别总耗时<strong id="resultElapsed">—</strong></div><div title="PS：特征提取及分类；PL：启动至完成的PS侧观测时间，含轮询开销">计算耗时<strong id="resultCompute">—</strong></div></div><div class="timing-comparison hidden" id="timingComparison"></div><details class="stage-details hidden" id="frameStages" open=""><summary>采集与显示耗时</summary><div class="stage-grid"><div title="包括配置、PL累积、出帧及状态查询">采集等待<strong id="stageAcquire">—</strong></div><div>读取RAM/文件<strong id="stageRead">—</strong></div><div>保存<strong id="stageSave">—</strong></div><div title="不含额外帧间等待及网页传输">整帧处理<strong id="stageFrame">—</strong></div><div>两帧完成间隔<strong id="stageInterval">—</strong></div><div>网页取图<strong id="stagePlotRequest">—</strong></div><div>浏览器绘图<strong id="stageDraw">—</strong></div></div></details><div class="peak-stats"><div>参考峰<strong id="referencePeak">—</strong></div><div>回波峰<strong id="returnPeak">—</strong></div><div>峰位时移 / bin<strong id="peakShift">—</strong></div></div><div class="truth hidden" id="truth"></div><p class="hint hidden" id="distanceResult"></p><div class="scores" id="scores"><span class="muted">识别后展示各类别分数</span></div><a class="text-link hidden" href="#" id="downloadFrame">下载当前帧 CSV ↗</a></div>
+</section>
+<section class="panel hidden" id="panel-train">
+<div class="card control-card"><div class="card-heading"><div><span class="eyebrow">MODEL VERSIONS</span><h2>模型版本管理</h2></div><span class="badge" id="modelId">模型 —</span></div>
+<div class="control-footer"><label class="model-version-select">浏览模型版本<select id="modelSource"><option value="">暂无模型</option></select></label><button class="button primary" id="applyModelVersion">启用所选模型</button><button class="button" id="refreshModels">刷新版本</button><button class="button danger" id="deleteModelVersion">删除所选版本</button></div>
+<p class="hint" id="modelVersionDetails">选择版本查看评估信息，启用后用于后续识别。</p>
+<div class="model-facts"><div><span>算法与结构</span><strong id="versionStructure">—</strong></div><div><span>训练数据</span><strong id="versionSamples">—</strong></div><div><span>留出验证准确率</span><strong id="versionAccuracy">—</strong></div><div><span>PL适用性</span><strong id="versionCapacity">—</strong></div><div><span>训练批次</span><strong id="versionRuns">—</strong></div><div><span>创建时间</span><strong id="versionCreated">—</strong></div></div>
+<details class="help-details"><summary>模型参数与内存状态</summary><p class="muted" id="modelMemory">未选版本仅保存在SD卡，模型参数按需加载。</p></details>
+<div class="buttons model-downloads"><a class="button small" href="/api/model/download/native" id="downloadSelectedNative">下载原生模型</a><a class="button small" href="/api/model/download/portable" id="downloadSelectedPortable">下载便携参数</a><a class="button small" href="/api/model/download/report" id="downloadSelectedReport">下载训练报告</a></div>
+</div>
+<div class="card control-card"><div class="card-heading"><div><span class="eyebrow">TRAINING</span><h2>选择批次与训练算法</h2></div><button class="button danger stop-button" disabled="">停止当前任务</button></div>
+<div class="form-grid training-grid"><label>训练算法<select id="trainingAlgorithm"><option value="random_forest">随机森林</option><option value="decision_tree">决策树</option><option value="tiny_cnn">小型CNN</option><option value="mlp">小型MLP</option></select></label><label>模型名称 / 选填<input id="modelName" maxlength="80" placeholder="例如：正对样品_MLP"/></label><label id="treeCountField">树数<input id="trees" max="128" min="1" type="number" value="32"/></label><label id="treeDepthField">每棵树最大深度<input id="depth" max="16" min="1" type="number" value="8"/></label></div>
+<label class="check hidden" id="tuneModelField"><input id="tuneModel" title="仅在训练折内比较参数，板端可能需要数分钟，不保证提高留出准确率" type="checkbox"/>训练折内轻量调参（MLP结构/正则alpha）</label>
+<p class="muted" id="algorithmHint">新训练使用9维统计特征；CNN另读取256点归一化回波，复用新版Overlay的乘加模块。</p>
+<details class="batch-picker searchable-batches" id="trainingBatchPicker"><summary><span>训练批次</span><strong id="trainingSelectionSummary">正在读取批次</strong><span class="batch-arrow">⌄</span></summary><div class="batch-menu"><div class="batch-filter-grid">
+<label class="batch-search">搜索<input autocomplete="off" id="trainBatchSearch" placeholder="材质、实物或批次编号" type="search"/></label>
+<label>日期<input id="trainBatchDate" type="date"/></label>
+<label>材质<select id="trainBatchMaterial"><option value="">全部材质</option></select></label>
+<label>实物<select id="trainBatchSpecimen"><option value="">全部实物</option></select></label>
+<details class="batch-extra"><summary>附加筛选</summary><div class="batch-filter-extra">
+<label>光照<select id="trainBatchLight"><option value="">全部光照</option><option value="shielded">遮光</option><option value="partial">半遮光</option><option value="exposed">暴露</option><option value="unknown">未记录</option></select></label>
+<label>距离 / cm<select id="trainBatchDistance"><option value="">全部距离</option></select></label>
+</div></details><button class="text-button" id="trainBatchReset" type="button">重置筛选</button>
+</div><div class="buttons"><button class="button small" id="selectAllTrainingRuns">全选筛选结果</button><button class="button small primary" id="selectOnlyFilteredRuns" type="button">仅选筛选结果</button><button class="button small" id="clearTrainingRuns">清空选择</button></div><div aria-label="训练批次选择" class="training-run-list" id="trainingRuns"></div></div></details>
+<div class="training-overview"><span>所选训练数据</span><strong id="trainingClasses">—</strong><small id="trainingClassNames">读取中</small></div>
+<div class="control-footer"><label class="check"><input checked="" id="activateTrainedModel" type="checkbox"/>训练完成后启用新模型</label><button class="button primary" id="startTrain">训练并保存新版本</button></div>
+<p class="hint">所有模型共用一份数据集；每个版本记录所选批次，不复制样本。模型保存并校验后即可使用，评估图表在查看时单独生成。训练失败或取消不覆盖旧版本。训练期间不运行识别。</p>
+</div>
+<div class="training-result"><div><span class="eyebrow">MODEL EVALUATION</span><h2>模型评估</h2><p id="validationHint">留出准确率属于验证结果；同实物帧内留出不能代表新实物效果。</p></div><div class="segmented"><button class="figure-button active" data-figure="overview">数据与混淆矩阵</button><button class="figure-button" data-figure="peaks">峰位核验</button><button class="figure-button" data-figure="importance">特征重要性</button><button class="figure-button" data-figure="model" id="modelFigureButton">模型专属分析</button></div></div>
+<div class="figure-toolbar"><label class="hidden" id="peakClassField">核验材质<select id="trainingPeakClass"></select></label><span class="badge" id="figureStatus">尚未加载图表</span><span class="muted" id="figureVersion"></span><button class="button small" id="refreshTrainingFigure">重新加载图表</button></div>
+<p class="hint hidden" id="modelFigureHint"></p>
+<div class="card figure-card" id="trainingFigureCard"><img alt="所选模型版本的训练评估图" class="hidden" id="trainingFigure"/><p class="muted" id="figurePlaceholder">请选择模型版本。</p></div>
+</section>
+<section class="card log-card"><div class="card-heading"><div><span class="eyebrow">ACTIVITY</span><h2>运行记录</h2></div><div class="log-heading"><span class="muted" id="progressText">空闲</span><span class="live-indicator"><i></i>实时更新</span><button class="button danger small stop-button" disabled="">停止</button></div></div><div class="progress-track" id="progressTrack"><div id="progressBar"></div></div><div aria-live="polite" class="logs" id="logs" role="log"></div></section>
+<footer class="page-footer"><span>火眼金睛 · MPSoC-P4 实验工作台</span><span>历史帧演示 / TDC 采集 / 多模型识别</span></footer>
+</main>
+<dialog aria-describedby="confirmMessage" aria-labelledby="confirmTitle" class="confirm-dialog" id="confirmDialog"><form method="dialog"><span class="eyebrow">CONFIRM ACTION</span><h2 id="confirmTitle">确认操作</h2><p id="confirmMessage"></p><div class="buttons"><button autofocus="" class="button" value="cancel">取消</button><button class="button danger" id="confirmAccept" value="confirm">确认删除</button></div></form></dialog>
+<div class="toast hidden" id="toast" role="status"></div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+{
+  "date": "2026-10-17",
+  "passed": true,
+  "local_and_p4_software_checks": [
+    {
+      "name": "generate non-TDC overlay metadata fixture",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "overlay metadata contract",
+      "passed": true,
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "reject overlay bad_hash",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject overlay bad_vlnv",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject overlay bad_address",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject overlay bad_register",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject overlay unsafe_probe",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "reject overlay missing_probe_value",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    },
+    {
+      "name": "synthetic fixture refuses live access",
+      "passed": true,
+      "exit_code": 2,
+      "expected_exit_code": 2
+    }
+  ],
+  "real_artifact_metadata": {
+    "passed": true,
+    "scope": "artifact and metadata contract; no hardware access",
+    "synthetic": false,
+    "system": {
+      "ARCH": "zynquplus",
+      "DEVICE": "xczu4ev",
+      "NAME": "design_1",
+      "PACKAGE": "sfvc784",
+      "SPEEDGRADE": "-1"
+    },
+    "checked_ips": {
+      "capture": {
+        "base": 2684616704,
+        "bytes": 65536,
+        "registers_checked": 0
+      },
+      "accelerator": {
+        "base": 2684682240,
+        "bytes": 65536,
+        "registers_checked": 7
+      },
+      "histogram": {
+        "base": 2684354560,
+        "bytes": 262144,
+        "registers_checked": 0
+      }
+    }
+  },
+  "live_read_only": {
+    "passed": true,
+    "scope": "artifact/metadata plus explicitly safe live reads; no writes or download",
+    "synthetic": false,
+    "system": {
+      "ARCH": "zynquplus",
+      "DEVICE": "xczu4ev",
+      "NAME": "design_1",
+      "PACKAGE": "sfvc784",
+      "SPEEDGRADE": "-1"
+    },
+    "checked_ips": {
+      "capture": {
+        "base": 2684616704,
+        "bytes": 65536,
+        "registers_checked": 0
+      },
+      "accelerator": {
+        "base": 2684682240,
+        "bytes": 65536,
+        "registers_checked": 7
+      },
+      "histogram": {
+        "base": 2684354560,
+        "bytes": 262144,
+        "registers_checked": 0
+      }
+    },
+    "live_reads": [
+      {
+        "ip": "capture",
+        "offset": 0,
+        "value": 1413759793
+      },
+      {
+        "ip": "capture",
+        "offset": 4,
+        "value": 3
+      },
+      {
+        "ip": "capture",
+        "offset": 136,
+        "value": 125000000
+      }
+    ],
+    "identity_limit": "loaded path and IP metadata; not a digest of FPGA configuration memory"
+  },
+  "device_environment_failure": {
+    "passed": false,
+    "error": "No Devices Found"
+  },
+  "outputs_changed": false,
+  "overlay_downloaded": false,
+  "dma_tested": false
+}

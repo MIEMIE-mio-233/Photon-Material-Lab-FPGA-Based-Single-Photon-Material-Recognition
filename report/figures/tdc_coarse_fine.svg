@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="233.28pt" viewBox="0 0 518.4 233.28" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-26T08:44:42.196345</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 233.28 
+L 518.4 233.28 
+L 518.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 50.62464 221.4 
+L 467.77536 221.4 
+Q 470.88 221.4 470.88 218.32704 
+L 470.88 182.56896 
+Q 470.88 179.496 467.77536 179.496 
+L 50.62464 179.496 
+Q 47.52 179.496 47.52 182.56896 
+L 47.52 218.32704 
+Q 47.52 221.4 50.62464 221.4 
+z
+" clip-path="url(#p1f3f2ff108)" style="fill: #f5f1e8; stroke: #555555; stroke-width: 1.05; stroke-linejoin: miter"/>
+   </g>
+   <g id="line2d_1">
+    <path d="M 89.856 95.688 
+L 89.856 48.1968 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_2">
+    <path d="M 180.1728 95.688 
+L 180.1728 48.1968 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_3">
+    <path d="M 270.4896 95.688 
+L 270.4896 48.1968 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_4">
+    <path d="M 360.8064 95.688 
+L 360.8064 48.1968 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_5">
+    <path d="M 451.1232 95.688 
+L 451.1232 48.1968 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_6">
+    <path d="M 75.744 95.688 
+L 490.6368 95.688 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_7">
+    <path d="M 140.6592 39.816 
+L 180.1728 39.816 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_8">
+    <path d="M 377.7408 39.816 
+L 451.1232 39.816 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: square"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 140.6592 145.9728 
+Q 140.6592 98.4816 140.6592 52.332041 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 138.2592 57.132041 
+L 140.6592 52.332041 
+L 143.0592 57.132041 
+z
+" clip-path="url(#p1f3f2ff108)" style="fill: #555555; stroke: #555555; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 377.7408 145.9728 
+Q 377.7408 98.4816 377.7408 52.332041 
+" clip-path="url(#p1f3f2ff108)" style="fill: none; stroke: #555555; stroke-width: 1.2; stroke-linecap: round"/>
+    <path d="M 375.3408 57.132041 
+L 377.7408 52.332041 
+L 380.1408 57.132041 
+z
+" clip-path="url(#p1f3f2ff108)" style="fill: #555555; stroke: #555555; stroke-width: 1.2; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #222222" x="19.296" y="21.992825" transform="rotate(-0 19.296 21.992825)">粗计数确定量程，细插值确定周期内位置</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="89.856" y="113.520844" transform="rotate(-0 89.856 113.520844)">N₁−1</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="180.1728" y="113.438031" transform="rotate(-0 180.1728 113.438031)">N₁</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="270.4896" y="113.520844" transform="rotate(-0 270.4896 113.520844)">N₁+1</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="360.8064" y="113.501313" transform="rotate(-0 360.8064 113.501313)">N₁+2</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 10px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="451.1232" y="113.438031" transform="rotate(-0 451.1232 113.438031)">N₂</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: start; fill: #222222" x="19.296" y="74.429116" transform="rotate(-0 19.296 74.429116)">时钟</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="140.6592" y="163.72205" transform="rotate(-0 140.6592 163.72205)">start</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="377.7408" y="162.424394" transform="rotate(-0 377.7408 162.424394)">stop</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="160.416" y="31.573788" transform="rotate(-0 160.416 31.573788)">τ₁</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 11px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="414.432" y="31.573788" transform="rotate(-0 414.432 31.573788)">τ₂</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; text-anchor: middle; fill: #222222" x="290.2464" y="133.406513" transform="rotate(-0 290.2464 133.406513)">粗计数差 ΔN = 3</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; fill: #222222" transform="translate(177.763125 196.013332)">时间间隔 Δt = ΔN·T + τ₁ − τ₂</text>
+    <text style="font-size: 12px; font-family: 'Microsoft YaHei', 'DejaVu Sans'; fill: #222222" transform="translate(169.2 213.278918)">细时间由延迟链编码与校准表取得</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p1f3f2ff108">
+   <rect x="5.184" y="3.4992" width="508.032" height="226.2816"/>
+  </clipPath>
+ </defs>
+</svg>

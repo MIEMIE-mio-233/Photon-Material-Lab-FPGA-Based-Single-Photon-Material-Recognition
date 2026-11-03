@@ -1,0 +1,1897 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date              : Thu Oct 22 01:04:30 2026
+| Host              : build_host running 64-bit major release  (build 9200)
+| Command           : report_timing -to [get_ports {{dac1_data[*]} {dac2_data[*]}}] -max_paths 20 -file <project_root>/pynq/overlays/dual_dac_setup.rpt
+| Design            : pynq_top
+| Device            : xczu4ev-sfvc784
+| Speed File        : -1  PRODUCTION 1.29 08-03-2020
+| Temperature Grade : I
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.656ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[1]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.346ns  (logic 3.343ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.599ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.418ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.038ns (routing 0.887ns, distribution 1.151ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.038     4.418    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y35    FDRE                                         r  u_dac_outputs/dac1_data_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y35    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.822 r  u_dac_outputs/dac1_data_reg[1]/Q
+                         net (fo=1, routed)           0.003     4.825    dac1_data_OBUF[1]
+    D12                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.939     7.764 r  dac1_data_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     7.764    dac1_data[1]
+    D12                                                               r  dac1_data[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.764    
+  -------------------------------------------------------------------
+                         slack                                  0.656    
+
+Slack (MET) :             0.659ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[6]/C
+                            (rising edge-triggered cell FDSE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[6]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.317ns  (logic 3.314ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.573ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.461ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.081ns (routing 0.887ns, distribution 1.194ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.081     4.461    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y38    FDSE                                         r  u_dac_outputs/dac2_data_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y38    FDSE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.865 r  u_dac_outputs/dac2_data_reg[6]/Q
+                         net (fo=1, routed)           0.003     4.868    dac2_data_OBUF[6]
+    B13                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.910     7.777 r  dac2_data_OBUF[6]_inst/O
+                         net (fo=0)                   0.000     7.777    dac2_data[6]
+    B13                                                               r  dac2_data[6] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.777    
+  -------------------------------------------------------------------
+                         slack                                  0.659    
+
+Slack (MET) :             0.666ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[8]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.311ns  (logic 3.308ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.574ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.460ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.080ns (routing 0.887ns, distribution 1.193ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.080     4.460    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y38    FDRE                                         r  u_dac_outputs/dac2_data_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y38    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.856 r  u_dac_outputs/dac2_data_reg[8]/Q
+                         net (fo=1, routed)           0.003     4.859    dac2_data_OBUF[8]
+    A13                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.912     7.771 r  dac2_data_OBUF[8]_inst/O
+                         net (fo=0)                   0.000     7.771    dac2_data[8]
+    A13                                                               r  dac2_data[8] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.771    
+  -------------------------------------------------------------------
+                         slack                                  0.666    
+
+Slack (MET) :             0.667ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[3]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.335ns  (logic 3.332ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.599ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.418ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.038ns (routing 0.887ns, distribution 1.151ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.038     4.418    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y35    FDRE                                         r  u_dac_outputs/dac1_data_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y35    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.814 r  u_dac_outputs/dac1_data_reg[3]/Q
+                         net (fo=1, routed)           0.003     4.817    dac1_data_OBUF[3]
+    C12                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.936     7.753 r  dac1_data_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     7.753    dac1_data[3]
+    C12                                                               r  dac1_data[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.753    
+  -------------------------------------------------------------------
+                         slack                                  0.667    
+
+Slack (MET) :             0.669ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[7]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.310ns  (logic 3.307ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.576ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.458ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.078ns (routing 0.887ns, distribution 1.191ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.078     4.458    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y39    FDRE                                         r  u_dac_outputs/dac2_data_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y39    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.862 r  u_dac_outputs/dac2_data_reg[7]/Q
+                         net (fo=1, routed)           0.003     4.865    dac2_data_OBUF[7]
+    C14                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.903     7.768 r  dac2_data_OBUF[7]_inst/O
+                         net (fo=0)                   0.000     7.768    dac2_data[7]
+    C14                                                               r  dac2_data[7] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.768    
+  -------------------------------------------------------------------
+                         slack                                  0.669    
+
+Slack (MET) :             0.670ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[0]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.287ns  (logic 3.284ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.554ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.420ns
+    Clock Pessimism Removal (CPR):    -1.027ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.040ns (routing 0.887ns, distribution 1.153ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.040     4.420    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y42    FDRE                                         r  u_dac_outputs/dac2_data_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y42    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.816 r  u_dac_outputs/dac2_data_reg[0]/Q
+                         net (fo=1, routed)           0.003     4.819    dac2_data_OBUF[0]
+    F13                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.888     7.707 r  dac2_data_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     7.707    dac2_data[0]
+    F13                                                               r  dac2_data[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -1.027    10.974    
+                         clock uncertainty           -0.097    10.876    
+                         output delay                -2.500     8.376    
+  -------------------------------------------------------------------
+                         required time                          8.376    
+                         arrival time                          -7.707    
+  -------------------------------------------------------------------
+                         slack                                  0.670    
+
+Slack (MET) :             0.670ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[4]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.340ns  (logic 3.337ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.607ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.410ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.030ns (routing 0.887ns, distribution 1.143ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.030     4.410    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y32    FDRE                                         r  u_dac_outputs/dac1_data_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y32    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.814 r  u_dac_outputs/dac1_data_reg[4]/Q
+                         net (fo=1, routed)           0.003     4.817    dac1_data_OBUF[4]
+    C11                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.933     7.749 r  dac1_data_OBUF[4]_inst/O
+                         net (fo=0)                   0.000     7.749    dac1_data[4]
+    C11                                                               r  dac1_data[4] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.749    
+  -------------------------------------------------------------------
+                         slack                                  0.670    
+
+Slack (MET) :             0.671ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[1]/C
+                            (rising edge-triggered cell FDSE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[1]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.280ns  (logic 3.277ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.548ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.426ns
+    Clock Pessimism Removal (CPR):    -1.027ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.046ns (routing 0.887ns, distribution 1.159ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.046     4.426    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y43    FDSE                                         r  u_dac_outputs/dac2_data_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y43    FDSE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.822 r  u_dac_outputs/dac2_data_reg[1]/Q
+                         net (fo=1, routed)           0.003     4.825    dac2_data_OBUF[1]
+    E15                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.881     7.705 r  dac2_data_OBUF[1]_inst/O
+                         net (fo=0)                   0.000     7.705    dac2_data[1]
+    E15                                                               r  dac2_data[1] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -1.027    10.973    
+                         clock uncertainty           -0.097    10.876    
+                         output delay                -2.500     8.376    
+  -------------------------------------------------------------------
+                         required time                          8.376    
+                         arrival time                          -7.705    
+  -------------------------------------------------------------------
+                         slack                                  0.671    
+
+Slack (MET) :             0.671ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[0]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.332ns  (logic 3.329ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.600ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.417ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.037ns (routing 0.887ns, distribution 1.150ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.037     4.417    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y34    FDRE                                         r  u_dac_outputs/dac1_data_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y34    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.821 r  u_dac_outputs/dac1_data_reg[0]/Q
+                         net (fo=1, routed)           0.003     4.824    dac1_data_OBUF[0]
+    A12                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.925     7.748 r  dac1_data_OBUF[0]_inst/O
+                         net (fo=0)                   0.000     7.748    dac1_data[0]
+    A12                                                               r  dac1_data[0] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.748    
+  -------------------------------------------------------------------
+                         slack                                  0.671    
+
+Slack (MET) :             0.673ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[2]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.330ns  (logic 3.327ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.600ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.417ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.037ns (routing 0.887ns, distribution 1.150ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.037     4.417    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y34    FDRE                                         r  u_dac_outputs/dac1_data_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y34    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.813 r  u_dac_outputs/dac1_data_reg[2]/Q
+                         net (fo=1, routed)           0.003     4.816    dac1_data_OBUF[2]
+    A11                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.931     7.747 r  dac1_data_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     7.747    dac1_data[2]
+    A11                                                               r  dac1_data[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.747    
+  -------------------------------------------------------------------
+                         slack                                  0.673    
+
+Slack (MET) :             0.676ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[6]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[6]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.332ns  (logic 3.329ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.605ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.412ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.032ns (routing 0.887ns, distribution 1.145ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.032     4.412    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y32    FDRE                                         r  u_dac_outputs/dac1_data_reg[6]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y32    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.808 r  u_dac_outputs/dac1_data_reg[6]/Q
+                         net (fo=1, routed)           0.003     4.811    dac1_data_OBUF[6]
+    B10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.933     7.744 r  dac1_data_OBUF[6]_inst/O
+                         net (fo=0)                   0.000     7.744    dac1_data[6]
+    B10                                                               r  dac1_data[6] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.744    
+  -------------------------------------------------------------------
+                         slack                                  0.676    
+
+Slack (MET) :             0.676ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[8]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.347ns  (logic 3.344ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.620ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.397ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.017ns (routing 0.887ns, distribution 1.130ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.017     4.397    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y30    FDRE                                         r  u_dac_outputs/dac1_data_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y30    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.801 r  u_dac_outputs/dac1_data_reg[8]/Q
+                         net (fo=1, routed)           0.003     4.804    dac1_data_OBUF[8]
+    E10                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.940     7.743 r  dac1_data_OBUF[8]_inst/O
+                         net (fo=0)                   0.000     7.743    dac1_data[8]
+    E10                                                               r  dac1_data[8] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.743    
+  -------------------------------------------------------------------
+                         slack                                  0.676    
+
+Slack (MET) :             0.677ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[7]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[7]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.328ns  (logic 3.325ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.602ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.415ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.035ns (routing 0.887ns, distribution 1.148ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.035     4.415    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y33    FDRE                                         r  u_dac_outputs/dac1_data_reg[7]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y33    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.811 r  u_dac_outputs/dac1_data_reg[7]/Q
+                         net (fo=1, routed)           0.003     4.814    dac1_data_OBUF[7]
+    A10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.929     7.743 r  dac1_data_OBUF[7]_inst/O
+                         net (fo=0)                   0.000     7.743    dac1_data[7]
+    A10                                                               r  dac1_data[7] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.743    
+  -------------------------------------------------------------------
+                         slack                                  0.677    
+
+Slack (MET) :             0.677ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[9]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[9]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.303ns  (logic 3.300ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.577ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.457ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.077ns (routing 0.887ns, distribution 1.190ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.077     4.457    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y39    FDRE                                         r  u_dac_outputs/dac2_data_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y39    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.853 r  u_dac_outputs/dac2_data_reg[9]/Q
+                         net (fo=1, routed)           0.003     4.856    dac2_data_OBUF[9]
+    C13                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.904     7.760 r  dac2_data_OBUF[9]_inst/O
+                         net (fo=0)                   0.000     7.760    dac2_data[9]
+    C13                                                               r  dac2_data[9] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.760    
+  -------------------------------------------------------------------
+                         slack                                  0.677    
+
+Slack (MET) :             0.678ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[5]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.328ns  (logic 3.325ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.603ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.414ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.034ns (routing 0.887ns, distribution 1.147ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.034     4.414    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y33    FDRE                                         r  u_dac_outputs/dac1_data_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y33    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.818 r  u_dac_outputs/dac1_data_reg[5]/Q
+                         net (fo=1, routed)           0.003     4.821    dac1_data_OBUF[5]
+    B11                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.921     7.742 r  dac1_data_OBUF[5]_inst/O
+                         net (fo=0)                   0.000     7.742    dac1_data[5]
+    B11                                                               r  dac1_data[5] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.742    
+  -------------------------------------------------------------------
+                         slack                                  0.678    
+
+Slack (MET) :             0.679ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[2]/C
+                            (rising edge-triggered cell FDSE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[2]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.306ns  (logic 3.303ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.582ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.452ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.072ns (routing 0.887ns, distribution 1.185ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.072     4.452    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y40    FDSE                                         r  u_dac_outputs/dac2_data_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y40    FDSE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.856 r  u_dac_outputs/dac2_data_reg[2]/Q
+                         net (fo=1, routed)           0.003     4.859    dac2_data_OBUF[2]
+    D15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.899     7.758 r  dac2_data_OBUF[2]_inst/O
+                         net (fo=0)                   0.000     7.758    dac2_data[2]
+    D15                                                               r  dac2_data[2] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.758    
+  -------------------------------------------------------------------
+                         slack                                  0.679    
+
+Slack (MET) :             0.681ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[3]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.310ns  (logic 3.307ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.588ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.446ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.066ns (routing 0.887ns, distribution 1.179ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.066     4.446    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y41    FDRE                                         r  u_dac_outputs/dac2_data_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y41    FDRE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.850 r  u_dac_outputs/dac2_data_reg[3]/Q
+                         net (fo=1, routed)           0.003     4.853    dac2_data_OBUF[3]
+    E14                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.903     7.756 r  dac2_data_OBUF[3]_inst/O
+                         net (fo=0)                   0.000     7.756    dac2_data[3]
+    E14                                                               r  dac2_data[3] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.756    
+  -------------------------------------------------------------------
+                         slack                                  0.681    
+
+Slack (MET) :             0.689ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[4]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.299ns  (logic 3.296ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.584ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.450ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.070ns (routing 0.887ns, distribution 1.183ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.070     4.450    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y40    FDRE                                         r  u_dac_outputs/dac2_data_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y40    FDRE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.846 r  u_dac_outputs/dac2_data_reg[4]/Q
+                         net (fo=1, routed)           0.003     4.849    dac2_data_OBUF[4]
+    D14                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.900     7.748 r  dac2_data_OBUF[4]_inst/O
+                         net (fo=0)                   0.000     7.748    dac2_data[4]
+    D14                                                               r  dac2_data[4] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.748    
+  -------------------------------------------------------------------
+                         slack                                  0.689    
+
+Slack (MET) :             0.690ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac1_data_reg[9]/C
+                            (rising edge-triggered cell FDSE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac1_data[9]
+                            (output port clocked by dac1_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac1_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac1_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.327ns  (logic 3.324ns (99.910%)  route 0.003ns (0.090%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.614ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    7.988ns = ( 11.988 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.403ns
+    Clock Pessimism Removal (CPR):    -0.971ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.023ns (routing 0.887ns, distribution 1.136ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.023     4.403    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y31    FDSE                                         r  u_dac_outputs/dac1_data_reg[9]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_M_X0Y31    FDSE (Prop_OPFF_HDIOLOGIC_M_C_Q)
+                                                      0.404     4.807 r  u_dac_outputs/dac1_data_reg[9]/Q
+                         net (fo=1, routed)           0.003     4.810    dac1_data_OBUF[9]
+    E12                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.920     7.729 r  dac1_data_OBUF[9]_inst/O
+                         net (fo=0)                   0.000     7.729    dac1_data[9]
+    E12                                                               r  dac1_data[9] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac1_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.780     9.328    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y30    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_S_CLK_OQ)
+                                                      0.265     9.593 r  u_dac_outputs/u_dac1_clock/OQ
+                         net (fo=1, routed)           0.002     9.595    dac1_clk_OBUF
+    D10                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.392    11.988 r  dac1_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    11.988    dac1_clk
+    D10                                                               r  dac1_clk (OUT)
+                         clock pessimism             -0.971    11.017    
+                         clock uncertainty           -0.097    10.920    
+                         output delay                -2.500     8.420    
+  -------------------------------------------------------------------
+                         required time                          8.420    
+                         arrival time                          -7.729    
+  -------------------------------------------------------------------
+                         slack                                  0.690    
+
+Slack (MET) :             0.692ns  (required time - arrival time)
+  Source:                 u_dac_outputs/dac2_data_reg[5]/C
+                            (rising edge-triggered cell FDSE clocked by clk_out1_dac_clk_wiz  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            dac2_data[5]
+                            (output port clocked by dac2_forward  {rise@4.000ns fall@8.000ns period=8.000ns})
+  Path Group:             dac2_forward
+  Path Type:              Max at Slow Process Corner
+  Requirement:            4.000ns  (dac2_forward rise@4.000ns - clk_out1_dac_clk_wiz rise@0.000ns)
+  Data Path Delay:        3.302ns  (logic 3.299ns (99.909%)  route 0.003ns (0.091%))
+  Logic Levels:           1  (OBUF=1)
+  Output Delay:           2.500ns
+  Clock Path Skew:        2.591ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    8.001ns = ( 12.001 - 4.000 ) 
+    Source Clock Delay      (SCD):    4.443ns
+    Clock Pessimism Removal (CPR):    -0.967ns
+  Clock Uncertainty:      0.097ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.181ns
+    Phase Error              (PE):    0.000ns
+  Clock Net Delay (Source):      2.063ns (routing 0.887ns, distribution 1.176ns)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_out1_dac_clk_wiz rise edge)
+                                                      0.000     0.000 r  
+    AE5                                               0.000     0.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     0.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.523     0.523 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.050     0.573    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     0.573 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.404     0.977    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                     -0.106     0.871 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.262     1.133    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     1.161 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        1.041     2.202    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                     -0.106     2.096 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.256     2.352    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.028     2.380 r  u_dac_clock/inst/clkout1_buf/O
+    X0Y1 (CLOCK_ROOT)    net (fo=1178, routed)        2.063     4.443    u_dac_outputs/clk
+    HDIOLOGIC_S_X0Y41    FDSE                                         r  u_dac_outputs/dac2_data_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    HDIOLOGIC_S_X0Y41    FDSE (Prop_OPFF_HDIOLOGIC_S_C_Q)
+                                                      0.396     4.839 r  u_dac_outputs/dac2_data_reg[5]/Q
+                         net (fo=1, routed)           0.003     4.842    dac2_data_OBUF[5]
+    E13                  OBUF (Prop_OUTBUF_HDIOB_S_I_O)
+                                                      2.903     7.745 r  dac2_data_OBUF[5]_inst/O
+                         net (fo=0)                   0.000     7.745    dac2_data[5]
+    E13                                                               r  dac2_data[5] (OUT)
+  -------------------------------------------------------------------    -------------------
+
+                         (clock dac2_forward rise edge)
+                                                      4.000     4.000 r  
+    AE5                                               0.000     4.000 r  sys_clk_p (IN)
+                         net (fo=0)                   0.000     4.000    u_top_tdc/u0_clk/inst/clkin1_ibufds/I
+    HPIOBDIFFINBUF_X0Y35 DIFFINBUF (Prop_DIFFINBUF_HPIOBDIFFINBUF_DIFF_IN_P_O)
+                                                      0.441     4.441 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/DIFFINBUF_INST/O
+                         net (fo=1, routed)           0.040     4.481    u_top_tdc/u0_clk/inst/clkin1_ibufds/OUT
+    AE5                  IBUFCTRL (Prop_IBUFCTRL_HPIOB_M_I_O)
+                                                      0.000     4.481 r  u_top_tdc/u0_clk/inst/clkin1_ibufds/IBUFCTRL_INST/O
+                         net (fo=1, routed)           0.351     4.832    u_top_tdc/u0_clk/inst/clk_in1_clk_wiz_0
+    MMCM_X0Y1            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT1)
+                                                      0.644     5.476 r  u_top_tdc/u0_clk/inst/mmcme4_adv_inst/CLKOUT1
+                         net (fo=2, routed)           0.233     5.709    u_top_tdc/u0_clk/inst/clk_out2_clk_wiz_0
+    BUFGCE_X0Y36         BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     5.733 r  u_top_tdc/u0_clk/inst/clkout2_buf/O
+                         net (fo=9505, routed)        0.919     6.652    u_dac_clock/inst/clk_in1
+    MMCM_X0Y0            MMCME4_ADV (Prop_MMCM_CLKIN1_CLKOUT0)
+                                                      0.644     7.296 r  u_dac_clock/inst/mmcme4_adv_inst/CLKOUT0
+                         net (fo=1, routed)           0.228     7.524    u_dac_clock/inst/clk_out1_dac_clk_wiz
+    BUFGCE_X0Y1          BUFGCE (Prop_BUFCE_BUFGCE_I_O)
+                                                      0.024     7.548 r  u_dac_clock/inst/clkout1_buf/O
+                         net (fo=1178, routed)        1.816     9.364    u_dac_outputs/clk
+    HDIOLOGIC_M_X0Y36    OSERDESE3 (Prop_OPTFF_HDIOLOGIC_M_CLK_OQ)
+                                                      0.274     9.638 r  u_dac_outputs/u_dac2_clock/OQ
+                         net (fo=1, routed)           0.002     9.640    dac2_clk_OBUF
+    B15                  OBUF (Prop_OUTBUF_HDIOB_M_I_O)
+                                                      2.360    12.001 r  dac2_clk_OBUF_inst/O
+                         net (fo=0)                   0.000    12.001    dac2_clk
+    B15                                                               r  dac2_clk (OUT)
+                         clock pessimism             -0.967    11.034    
+                         clock uncertainty           -0.097    10.937    
+                         output delay                -2.500     8.437    
+  -------------------------------------------------------------------
+                         required time                          8.437    
+                         arrival time                          -7.745    
+  -------------------------------------------------------------------
+                         slack                                  0.692    
+
+
+
+

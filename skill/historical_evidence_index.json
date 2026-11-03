@@ -1,0 +1,40 @@
+{
+  "scope": "Original historical records, not current release reruns",
+  "records": [
+    {
+      "file": "skill/forest_cross_runtime/references/validation-20261017.json",
+      "sha256": "78284849e477296f9666b8d150d053e2b0bee72681dae5dfe0b10c8d38efac45",
+      "original_sha256": "78284849e477296f9666b8d150d053e2b0bee72681dae5dfe0b10c8d38efac45",
+      "historical_date": "2026-10-17",
+      "restored_without_changes": true
+    },
+    {
+      "file": "skill/pynq_bringup/references/validation-20261017.json",
+      "sha256": "f66f2609f8742c2bd8a3d0de02588a57eeaa63e525c4861790205b201ed4e045",
+      "original_sha256": "f66f2609f8742c2bd8a3d0de02588a57eeaa63e525c4861790205b201ed4e045",
+      "historical_date": "2026-10-17",
+      "restored_without_changes": true
+    },
+    {
+      "file": "skill/pynq_offline_ml/references/validation-20261017.json",
+      "sha256": "6ffb7cb5aba726ce5fb815cdabb26daa8a3f99229ea77a64ce7a7d40f3617993",
+      "original_sha256": "6ffb7cb5aba726ce5fb815cdabb26daa8a3f99229ea77a64ce7a7d40f3617993",
+      "historical_date": "2026-10-17",
+      "restored_without_changes": true
+    },
+    {
+      "file": "skill/pynq_pipeline_profiler/references/validation-20261017.json",
+      "sha256": "a823e2634b0b568c357ad50df13c56e5471f95e77a0a57c164925a0061942132",
+      "original_sha256": "a823e2634b0b568c357ad50df13c56e5471f95e77a0a57c164925a0061942132",
+      "historical_date": "2026-10-17",
+      "restored_without_changes": true
+    },
+    {
+      "file": "skill/reference_compare/references/validation-20261017.json",
+      "sha256": "963db0750d7c2bdfbcb29275df09d825d8e75283923a23074a8335bd0962aead",
+      "original_sha256": "963db0750d7c2bdfbcb29275df09d825d8e75283923a23074a8335bd0962aead",
+      "historical_date": "2026-10-17",
+      "restored_without_changes": true
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "date": "2026-10-25",
+  "python_existing_self_contained_tests": 33,
+  "python_added_portable_calibration_tests": 1,
+  "javascript_test_groups": 5,
+  "curated_model_frame_parity_cases": 324,
+  "model_parity_reference": "original project Python source with the same public data and portable parameters",
+  "scope": "local software and frontend checks; no hardware outputs or optical acquisition",
+  "omitted_tests": "old tests requiring historical build workspaces and retired algorithm fixtures",
+  "hardware_rebuild": "not rerun after relocation",
+  "python_added_catalog_cache_tests": 3,
+  "python_total_tests": 37,
+  "validation_environment": "Windows; Python 3.12.14; NumPy 2.3.5; scikit-learn 1.9.1; Matplotlib 3.9.4; Node.js",
+  "capture_display_reference": "capture_display_performance.json"
+}

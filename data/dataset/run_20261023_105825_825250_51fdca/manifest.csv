@@ -1,0 +1,11 @@
+run_id,task_index,material_id,specimen_id,distance_cm,sample_kind,schema_version,frame_index,attempt,timestamp,trig_freq_hz,trig_num,bin_num,bin_width_ps,received_bytes,total_counts,peak_bin_index,csv_path,raw_path
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,1,1,2026-10-23T10:58:25.834051,100000,100000,65536,8,0,131212,65535,01_poplar_poplar/frame_0001.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,2,1,2026-10-23T10:58:26.871177,100000,100000,65536,8,0,131326,65535,01_poplar_poplar/frame_0002.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,3,1,2026-10-23T10:58:27.909933,100000,100000,65536,8,0,131051,65535,01_poplar_poplar/frame_0003.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,4,1,2026-10-23T10:58:28.956688,100000,100000,65536,8,0,131208,65535,01_poplar_poplar/frame_0004.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,5,1,2026-10-23T10:58:29.996121,100000,100000,65536,8,0,130929,65535,01_poplar_poplar/frame_0005.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,6,1,2026-10-23T10:58:31.043067,100000,100000,65536,8,0,131195,65535,01_poplar_poplar/frame_0006.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,7,1,2026-10-23T10:58:32.088670,100000,100000,65536,8,0,131113,65535,01_poplar_poplar/frame_0007.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,8,1,2026-10-23T10:58:33.141593,100000,100000,65536,8,0,131008,65535,01_poplar_poplar/frame_0008.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,9,1,2026-10-23T10:58:34.191375,100000,100000,65536,8,0,131398,65535,01_poplar_poplar/frame_0009.npy,
+run_20261023_105825_825250_51fdca,1,poplar,poplar,30.0,material,2,10,1,2026-10-23T10:58:35.231980,100000,100000,65536,8,0,130978,65535,01_poplar_poplar/frame_0010.npy,

@@ -1,0 +1,11 @@
+run_id,task_index,material_id,specimen_id,distance_cm,sample_kind,schema_version,frame_index,attempt,timestamp,trig_freq_hz,trig_num,bin_num,bin_width_ps,received_bytes,total_counts,peak_bin_index,csv_path,raw_path
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,1,1,2026-10-23T11:01:22.185959,100000,100000,65536,8,0,126913,65535,01_density_density/frame_0001.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,2,1,2026-10-23T11:01:23.220836,100000,100000,65536,8,0,127133,65535,01_density_density/frame_0002.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,3,1,2026-10-23T11:01:24.247643,100000,100000,65536,8,0,127639,65535,01_density_density/frame_0003.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,4,1,2026-10-23T11:01:25.274532,100000,100000,65536,8,0,127168,65535,01_density_density/frame_0004.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,5,1,2026-10-23T11:01:26.305768,100000,100000,65536,8,0,127217,65535,01_density_density/frame_0005.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,6,1,2026-10-23T11:01:27.336095,100000,100000,65536,8,0,127458,65535,01_density_density/frame_0006.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,7,1,2026-10-23T11:01:28.362826,100000,100000,65536,8,0,127689,65535,01_density_density/frame_0007.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,8,1,2026-10-23T11:01:29.388344,100000,100000,65536,8,0,127503,65535,01_density_density/frame_0008.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,9,1,2026-10-23T11:01:30.412131,100000,100000,65536,8,0,127494,65535,01_density_density/frame_0009.npy,
+run_20261023_110122_172988_a6e491,1,density,density,25.0,material,2,10,1,2026-10-23T11:01:31.439540,100000,100000,65536,8,0,127244,65535,01_density_density/frame_0010.npy,

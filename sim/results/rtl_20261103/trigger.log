@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# xsim v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Nov  3 09:24:00 2026
+# Process ID: 17704
+# Current directory: <source>/build/trigger_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_internal_trigger_gen/xsim_script.tcl}
+# Log file: <source>/build/trigger_sim/xsim.log
+# Journal file: <source>/build/trigger_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_internal_trigger_gen/xsim_script.tcl
+# xsim {tb_internal_trigger_gen} -autoloadwcfg -runall
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+run -all
+PASS: default 100kHz, laser 5us, receiver delay 800ns / width 8us
+PASS: delayed 10ns laser pulse, both widths adjustable, atomic boundary update
+PASS: wrapping windows, first complete pulse, boundary equality and 33-bit endpoint
+PASS: invalid input rejection, minimum widths, disable/restart
+ALL TESTS PASSED
+$finish called at time : 43497131 ps : File "<source>/sim/rtl/tb_internal_trigger_gen.sv" Line 144
+exit
+INFO: [Common 17-206] Exiting xsim at Tue Nov  3 09:24:03 2026...

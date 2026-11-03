@@ -1,0 +1,9 @@
+{
+  "scope": "tdc_accelerator top-level HLS estimate, identical function and interfaces",
+  "equivalence": "Both variants pass the same 88-word historical CNN fixture; absolute tolerance 1e-12",
+  "controlled_change": "Separate convolution_layer implementation versus shared dense_layer call",
+  "before_source_sha256": "84d5b97a4572d976d2935f91bdbcb637779e99ef5644bcb17f6128e85c182d8c",
+  "after_source_sha256": "3c66d2cfd4376cdc4c94b5557ffdd2a6e6e8bdd20f02320720682c38303a150b",
+  "constraints_sha256": "4df1a2a32a9a3a488b39a9dac2a8eb80560830c16b83aca6189189fab6d9409e",
+  "fixture_sha256": "4dd8b3635b71b3c67cf3cbbc60e8749cefcfb6f6b3414b2dd72de98dc6d4e0ba"
+}

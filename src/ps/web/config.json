@@ -1,0 +1,18 @@
+{
+  "host": "0.0.0.0",
+  "port": 8080,
+  "tdc_ip": "192.168.1.10",
+  "tdc_port": 1234,
+  "local_ip": "192.168.1.99",
+  "local_port": 1234,
+  "trig_level1_mv": 1000,
+  "trig_level2_mv": 1000,
+  "trig_freq_hz": 100000,
+  "trig_num": 100000,
+  "bin_num": 65536,
+  "bin_width": 3,
+  "receive_timeout_s": 8.0,
+  "max_attempts": 3,
+  "timeout_s": 15,
+  "transport": "pl_internal_axi"
+}

@@ -1,0 +1,11 @@
+run_id,task_index,material_id,specimen_id,distance_cm,sample_kind,schema_version,frame_index,attempt,timestamp,trig_freq_hz,trig_num,bin_num,bin_width_ps,received_bytes,total_counts,peak_bin_index,csv_path,raw_path
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,1,1,2026-10-23T11:12:17.321830,100000,100000,65536,8,0,6712,65535,01_bgm_bgm/frame_0001.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,2,1,2026-10-23T11:12:18.365705,100000,100000,65536,8,0,6901,65535,01_bgm_bgm/frame_0002.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,3,1,2026-10-23T11:12:19.404254,100000,100000,65536,8,0,6628,65535,01_bgm_bgm/frame_0003.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,4,1,2026-10-23T11:12:20.438555,100000,100000,65536,8,0,6868,65535,01_bgm_bgm/frame_0004.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,5,1,2026-10-23T11:12:21.485228,100000,100000,65536,8,0,6904,65535,01_bgm_bgm/frame_0005.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,6,1,2026-10-23T11:12:22.557192,100000,100000,65536,8,0,6975,65535,01_bgm_bgm/frame_0006.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,7,1,2026-10-23T11:12:23.601583,100000,100000,65536,8,0,6790,65535,01_bgm_bgm/frame_0007.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,8,1,2026-10-23T11:12:24.633760,100000,100000,65536,8,0,6921,65535,01_bgm_bgm/frame_0008.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,9,1,2026-10-23T11:12:25.674046,100000,100000,65536,8,0,6917,65535,01_bgm_bgm/frame_0009.npy,
+run_20261023_111217_312981_f2e9dd,1,bgm,bgm,15.0,blocked_background,2,10,1,2026-10-23T11:12:26.714639,100000,100000,65536,8,0,6852,65535,01_bgm_bgm/frame_0010.npy,

@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-03",
+  "tool": "Vitis HLS 2020.2 / XSIM",
+  "records": [
+    {
+      "variant": "shared",
+      "status": "PASS",
+      "latency_cycles": 114828,
+      "transactions": 1,
+      "output_words_compared": 88,
+      "atol": 1e-12,
+      "log": "shared_cosim.log",
+      "log_sha256": "cd91fe886ea199c02bf3a2e5338179b6f5571ce3099e12ad421642d224812ab0",
+      "original_log_sha256": "d7d7f8516732f5b23b81a5bbd123fbd14b8657390c36d91643ffebc2c595ac62",
+      "dsp_opmode_warnings": 2062,
+      "scope": "XSIM RTL against a historical CNN fixture; no board access; II not measured"
+    },
+    {
+      "variant": "separate",
+      "status": "PASS",
+      "latency_cycles": 71836,
+      "transactions": 1,
+      "output_words_compared": 88,
+      "atol": 1e-12,
+      "log": "separate_cosim.log",
+      "log_sha256": "54b7e5844e8aa29bfd6f9cebb46d20ab71a8bb13209c59eb6ffbe937afe231ea",
+      "original_log_sha256": "465247fc32e1665d1414e78f65bd9a2daff2a220906905483dbd442e0053f458",
+      "dsp_opmode_warnings": 2580,
+      "scope": "XSIM RTL against a historical CNN fixture; no board access; II not measured"
+    }
+  ],
+  "normalization": "Workspace paths and host/user identity replaced; all diagnostic messages retained"
+}

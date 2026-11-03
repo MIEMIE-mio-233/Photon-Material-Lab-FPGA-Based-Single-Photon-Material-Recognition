@@ -1,0 +1,29 @@
+{
+  "case": "tested PYNQ 2.7 / Python 3.8 / aarch64 only",
+  "base_numpy": "1.20.3",
+  "base_scipy": "1.3.3",
+  "packages": [
+    {
+      "package": "scikit-learn",
+      "version": "0.24.2",
+      "filename": "scikit_learn-0.24.2-cp38-cp38-manylinux2014_aarch64.whl",
+      "url": "https://files.pythonhosted.org/packages/35/ed/4bac8cc77baa335f31e1ea7dd91fc3b0793df755192aa384c7ca4dee4841/scikit_learn-0.24.2-cp38-cp38-manylinux2014_aarch64.whl",
+      "sha256": "8fac72b9688176922f9f54fda1ba5f7ffd28cbeb9aad282760186e8ceba9139a"
+    },
+    {
+      "package": "joblib",
+      "version": "1.1.1",
+      "filename": "joblib-1.1.1-py2.py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/7c/91/d3ba0401e62d7e42816bc7d97b82d19c95c164b3e149a87c0a1c026a735e/joblib-1.1.1-py2.py3-none-any.whl",
+      "sha256": "f9d6c3cdf2a7778e9058e10e9dba028e47771a1a355e5768f46704bf05342eba"
+    },
+    {
+      "package": "threadpoolctl",
+      "version": "3.1.0",
+      "filename": "threadpoolctl-3.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/61/cf/6e354304bcb9c6413c4e02a747b600061c21d38ba51e7e544ac7bc66aecc/threadpoolctl-3.1.0-py3-none-any.whl",
+      "sha256": "8b99adda265feb6773280df41eece7b2e6561b772d21ffd52e372f999024907b"
+    }
+  ],
+  "source_verified": "PyPI JSON and local wheel SHA256 match; no package installation performed"
+}

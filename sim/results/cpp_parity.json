@@ -1,0 +1,40 @@
+{
+  "passed": true,
+  "provenance": "real historical histograms; native/portable Python versus actual HLS C++ algorithm via DLL; not RTL or board",
+  "cases": [
+    {
+      "algorithm": "tiny_cnn",
+      "frames": 120,
+      "feature_error": 0,
+      "score_max_error": 1.2212453270876722e-15,
+      "parameter_bytes": 10064,
+      "classes": 12
+    },
+    {
+      "algorithm": "random_forest",
+      "frames": 120,
+      "feature_error": 0,
+      "score_max_error": 0,
+      "parameter_bytes": 154112,
+      "classes": 12
+    },
+    {
+      "algorithm": "decision_tree",
+      "frames": 120,
+      "feature_error": 0,
+      "score_max_error": 0,
+      "parameter_bytes": 3208,
+      "classes": 12
+    },
+    {
+      "algorithm": "mlp",
+      "frames": 120,
+      "feature_error": 0,
+      "score_max_error": 1.887379141862766e-15,
+      "parameter_bytes": 8592,
+      "classes": 12
+    }
+  ],
+  "cnn64_parameter_bytes": 13808,
+  "baseline": 23752.5
+}

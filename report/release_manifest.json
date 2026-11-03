@@ -79,8 +79,8 @@
     },
     {
       "path": "build/README_2025_2.md",
-      "bytes": 5884,
-      "sha256": "20dcbec5f28276ff114aef1888caa9b58a19d19ab844f939fd77e38785668d29"
+      "bytes": 5737,
+      "sha256": "6d3ee8c0d14eead0aa149e830e3430b22002a262e91e6c38f5dde79d3f88a7f4"
     },
     {
       "path": "build/reports/bus_skew.rpt",
@@ -9584,8 +9584,8 @@
     },
     {
       "path": "report/third_party_notices.md",
-      "bytes": 1486,
-      "sha256": "a50bfc7b0ebce4c7bf3cf95ba8a3c6c707f2a656239cee08d27cad6298a5ae83"
+      "bytes": 1251,
+      "sha256": "3792f90e03624c12fb5e0c9209d2684642756541061a53fbf501740015afa185"
     },
     {
       "path": "sim/hls/baseline.bin",

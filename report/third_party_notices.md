@@ -4,8 +4,6 @@
 
 | 组件 | 来源与使用条件 |
 | --- | --- |
-| src/netlist/time_merge_eval.dcp | 厂家DNA绑定评估网表，已确认允许公开网表及生成bit；更换器件需取得对应授权 |
-| board/overlays/tdc_pynq.bit | 含TDC网表的生成产物，沿用对应授权条件 |
 | src/vendor_ip、src/bd及HWH | AMD工具/IP配置及生成内容，遵循原工具与IP条款 |
 | UDP/接口RTL及TLV5618参考驱动 | 保留原有归属，TLV5618参考代码来自小梅哥工程 |
 | src/hardware/comparator_frontend_schematic.pdf | 双通道比较前端电路资料，保留原始图页标识，作为接线与阈值电路参考 |

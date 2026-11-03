@@ -72,7 +72,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File build/scripts/build_2025_2.p
 - 检查 `timing_summary.rpt`、`utilization.rpt`、`cdc.rpt`、`bus_skew.rpt`，同时检查未约束端点与I/O告警。
 - 使用同次构建的 bit/HWH，先比较同一输入帧、同一模型的 PS/PL 特征及预测，再验证真实采集、TDC校准、DAC和比较阈值控制。
 
-TDC网表位于 `src/netlist/time_merge_eval.dcp`。若2025.2读取或链接该交付网表失败，需要厂家提供同器件、同接口的兼容网表；导入层级为 `u_top_tdc/u_time_merge`。DNA授权条件沿用网表交付约定。
+TDC网表位于 `src/netlist/time_merge_eval.dcp`。导入层级为 `u_top_tdc/u_time_merge`。
 
 正式发布时，将验证通过的 bit/HWH 成对复制到 `board/overlays`，同步实现报告、工具版本说明和 `report/release_manifest.json`。构建入口的 `BUILD_COMPLETE` 表示编译及脚本检查完成，板端功能验收另行记录。
 
